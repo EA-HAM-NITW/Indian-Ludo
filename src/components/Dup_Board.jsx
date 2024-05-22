@@ -7,51 +7,66 @@ import Strikes from './strike';
 import Greencircle from './greencircles';
 import Redcircles from './Redcircles';
 import Bluecircles from './Bluecircles';
-import "../App.css";
 import Yellowcircles from './Yellowcircles';
+import "../App.css";
 
+const greenPawnPath = [
+  { h: 'a', v: '3' }, { h: 'a', v: '2' }, { h: 'a', v: '1' },
+  { h: 'b', v: '1' }, { h: 'c', v: '1' }, { h: 'd', v: '1' }
+];
 
-function Board() {
-  const vertical = ['1', '2', '3', '4', '5'];
-  const horizontal = ['a', 'b', 'c', 'd', 'e'];
-  const [marginLeft, setMarginLeft] = useState(0); // State to manage marginLeft
-  const [marginTop, setMarginTop] = useState(0); // State to manage marginTop
-  const [position, setPosition] = useState({ h: '0', v: '0' }); // State to track current position
-  const imageRef = useRef(null); // Ref to the image element
+function Dup_Board() {
+  
+  const [position, setPosition] = useState({h : 'a' , v : '3'});
+  const [greenPositionIndex, setGreenPositionIndex] = useState(0);
+  const inputRef = useRef(null);
 
-  const moveImage = () => {
-    let newH = position.h;
-    let newV = position.v;
-
-    // Check if we need to move horizontally
-    if (newH !== '2') {
-      newH = String.fromCharCode(newH.charCodeAt(0) + 1);
-      setMarginLeft(marginLeft + 100); // Move right by 100px
-      console.log(newH, newV);
-    } else if (newV !== '4') {
-      // Move down after reaching the end of the horizontal line
-      newV = (parseInt(newV) + 1).toString();
-      setMarginTop(marginTop + 100); 
-      console.log(newH, newV); // Move down by 100px
+  const Inputcheckgreen = () => {
+    const inputValue = parseInt(inputRef.current.value, 10);
+    if (!isNaN(inputValue)) {
+      moveImagegreen(inputValue);
     }
+  };
 
-    // Update the position state
-    setPosition({ h: newH, v: newV });
+  const resetGreenPawn = () => {
+    setGreenPositionIndex(0);
+    setPosition({h : 'a' , v : '3'});
+    updatePawnPosition({h : 'a' , v : '3'});
+  };
 
-    // Apply the CSS transition effect
-    setTimeout(() => {
-      const g = document.getElementById('gpr');
-      if (g) {
-        g.style.transition = 'margin 0.5s';
-      }
-    }, 50);
+  const moveImagegreen = (steps) => {
+    const stepDuration = 1000;
+
+    for (let i = 0; i < steps; i++) {
+      setTimeout(() => {
+        setGreenPositionIndex((prevIndex) => {
+          const nextIndex = (prevIndex + 1) % greenPawnPath.length;
+          const newPosition = greenPawnPath[nextIndex];
+
+          console.log(`Step ${i + 1}: Moving to position ${newPosition.h}${newPosition.v}`);
+
+          setPosition(newPosition);
+          updatePawnPosition(newPosition);
+          return nextIndex;
+        });
+      }, i * stepDuration);
+    }
+  };
+
+  const updatePawnPosition = (position) => {
+    const g = document.getElementById('pu');
+    if (g) {
+      g.style.transition = 'all 0.5s';
+      g.style.left = `${(position.h.charCodeAt(0) - 'a'.charCodeAt(0)) * 100}px`;
+      g.style.top = `${(position.v.charCodeAt(0) - '1'.charCodeAt(0)) * 100}px`;
+    }
   };
 
   return (
     <div>
       <div className='board'>
-        {horizontal.map((h) =>
-          vertical.map((v) => (
+        {['a', 'b', 'c', 'd', 'e'].map((h) =>
+          ['1', '2', '3', '4', '5'].map((v) => (
             <div className='tile' key={`${h}${v}`}>
               {h === 'c' && v === '3' && (
                 <div className='HOME'>
@@ -67,41 +82,23 @@ function Board() {
                   <Strikes />
                   <Greencircle />
                   <img
-                    ref={imageRef}
+                    id='pu'
                     src={greenPawn}
                     alt='Green Pawn'
                     className='pu'
-                    id='pu'
-                    //style={{ marginLeft: `${marginLeft}px`, marginTop: `${marginTop}px` }}
+                    style={{
+                        left: `${(parseInt(position.h, 36) - 10) * 100}px`,
+                        top: `${(parseInt(position.v) - 1) * 100}px`
+                      }}
                   />
-                  <img
-                    ref={imageRef}
-                    src={greenPawn}
-                    alt='Green Pawn'
-                    className='pr'
-                    id='pr'
-              
-                  />
-                  <img
-                    ref={imageRef}
-                    src={greenPawn}
-                    alt='Green Pawn'
-                    className='pd'
-                    id='pd'
-                  />
-                  <img
-                    ref={imageRef}
-                    src={greenPawn}
-                    alt='Green Pawn'
-                    className='pl'
-                    id='pl'
-                    //style={{ marginLeft: `${marginLeft}px`, marginTop: `${marginTop}px` }}
-                  />
+                  <img src={greenPawn} alt='Green Pawn' className='pr' id='pr' />
+                  <img src={greenPawn} alt='Green Pawn' className='pd' id='pd' />
+                  <img src={greenPawn} alt='Green Pawn' className='pl' id='pl' />
                 </div>
               )}
               {h === 'e' && v === '3' && (
                 <div className='Parent'>
-                  <Bluecircles/>
+                  <Bluecircles />
                   <Strikes />
                   <img src={bluePawn} alt='Blue Pawn' className='pu' />
                   <img src={bluePawn} alt='Blue Pawn' className='pr' />
@@ -111,7 +108,7 @@ function Board() {
               )}
               {h === 'c' && v === '1' && (
                 <div className='Parent'>
-                  <Redcircles/>
+                  <Redcircles />
                   <Strikes />
                   <img src={redPawn} alt='Red Pawn' className='pu' />
                   <img src={redPawn} alt='Red Pawn' className='pr' />
@@ -121,7 +118,7 @@ function Board() {
               )}
               {h === 'c' && v === '5' && (
                 <div className='Parent'>
-                  <Yellowcircles/>
+                  <Yellowcircles />
                   <Strikes />
                   <img src={yellowPawn} alt='Yellow Pawn' className='pu' />
                   <img src={yellowPawn} alt='Yellow Pawn' className='pr' />
@@ -133,11 +130,11 @@ function Board() {
           ))
         )}
       </div>
-      <button className='inputs' onClick={moveImage}>
-        Click me
-      </button>
+      <input ref={inputRef} type="number" />
+      <button onClick={Inputcheckgreen}>Move Green Pawn</button>
+      <button onClick={resetGreenPawn}>Reset Green Pawn</button>
     </div>
   );
 }
 
-export default Board;
+export default Dup_Board;
