@@ -1,13 +1,11 @@
-/* App.css */
-
 .container {
   max-width: 1000px;
   margin: 10px;
   background-color: white;
   padding: 20px;
   border-radius: 8px;
-  margin-top:30px;
-  margin-left:250px;
+  margin-top: 30px;
+  margin-left: 250px;
 }
 
 .Heading_app {
@@ -16,87 +14,97 @@
   font-style: normal;
   font-weight: 200;
   align-content: center;
-  color:black;
-  margin-left: 220PX;
-
+  color: black;
+  margin-left: 220px;
 }
+
 .Apnabutton {
   font-weight: 200;
-  color:black;
+  color: black;
   background-color: white;
   font-family: 'Courier New', Courier, monospace;
   align-content: center;
-  color:black;
+  color: black;
   margin-left: 150px;
   border-color: black;
 }
-.board{
-  display:grid;
+
+.board {
+  display: grid;
   grid-template-columns: repeat(5, 100px);
   grid-template-rows: repeat(5, 100px);
   margin-top: 30px;
   margin-left: 30px;
-  background-color:wheat;
-  height:500px;
-  width:500px;
+  background-color: wheat;
+  height: 500px;
+  width: 500px;
   border: 3px solid black;
 }
-.tile{
+
+.tile {
   width: 100px;
   height: 100px;
   border: 1px solid black;
 }
-.strikel
-{
+
+.strikel {
   background-color: sienna;
   width: 100px;
   height: 4px;
   transform: skewY(45deg);
-  position:absolute;
+  position: absolute;
   transform: translate(-50%, -50%) skewY(45deg);
   margin-top: 50px;
   margin-left: 50px;
 }
-.striker
-{
+
+.striker {
   background-color: sienna;
   width: 100px;
   height: 4px;
   transform: skewY(135deg);
-  position:absolute;
+  position: absolute;
   transform: translate(-50%, -50%) skewY(135deg);
   margin-left: 50px;
   margin-top: 50px;
 }
+
 .HOME {
   position: relative;
 }
-.triangled,.trianglel,.triangler,.triangleu {
-  position:absolute;
+
+.triangled, .trianglel, .triangler, .triangleu {
+  position: absolute;
 }
+
 .triangleu {
   width: 0;
   height: 0;
-  margin-left:50px;
+  margin-left: 50px;
   position: absolute;
   transform: translate(-50%, -50%) rotate(45deg);
   border-top: 35px solid transparent;
   border-left: 35px solid transparent;
-  border-right: 35px solid green; /* Adjust the color here */
-  border-bottom: 35px solid green; /* Adjust the color here */
+  border-right: 35px solid green;
+  /* Adjust the color here */
+  border-bottom: 35px solid green;
+  /* Adjust the color here */
 }
+
 .triangler {
   width: 0;
   height: 0;
   position: absolute;
-  margin-left : 100px ;
-  margin-top:50px;
+  margin-left: 100px;
+  margin-top: 50px;
   transform: translate(-50%, -50%) rotate(135deg);
   border-top: 35px solid transparent;
   border-left: 35px solid transparent;
-  border-right: 35px solid yellow; /* Adjust the color here */
-  border-bottom: 35px solid  yellow;
+  border-right: 35px solid yellow;
+  /* Adjust the color here */
+  border-bottom: 35px solid yellow;
 }
+
 .trianglel {
   width: 0;
   height: 0;
@@ -108,88 +116,90 @@
   border-right: 35px solid red;
   border-bottom: 35px solid red;
 }
+
 .triangled {
   width: 0;
   height: 0;
-  margin-left:50px;
+  margin-left: 50px;
   position: absolute;
   margin-top: 100px;
   transform: translate(-50%, -50%) rotate(225deg);
   border-top: 35px solid transparent;
   border-left: 35px solid transparent;
-  border-right: 35px solid blue; 
-  border-bottom: 35px solid blue; 
+  border-right: 35px solid blue;
+  border-bottom: 35px solid blue;
 }
+
+.Parent {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.Circled, .Circlel, .Circler, .Circleu {
+  position: absolute;
+}
+
+.Circleu {
+  left: 35%;
+  top: 10%;
+  position: absolute;
+}
+
+.Circled {
+  left: 21px;
+  top: 40px;
+  position: absolute;
+}
+
+.Circlel {
+  left: 0%;
+  top: 40%;
+  position: absolute;
+}
+
+.Circler {
+  left: 40px;
+  top: 40%;
+  position: absolute;
+}
+
 .Parent {
   position: relative;
 }
-.Circled,.Circlel,.Circler,.Circleu {
+
+.pu, .pr, .pd, .pl {
   position: absolute;
+  width: 25px;
+  height: 35px;
 }
-.Circleu {
-  left:38%;
+
+.pu {
+  left: 35%;
   top: 0%;
-  position: absolute;
+  z-index:2;
 }
-.Circled {
-  left:21px;
-  top: 40px;
-  position: absolute;
-  
+
+.pr {
+  right: 0px;
+  top: 30px;
+  z-index:2;
 }
-.Circlel {
-  left: 0%;
-  top: 60%;
-  position: absolute;
-  
-}
-.Circler {
+
+.pd {
   left: 40px;
-  top: 60%;
-  position: absolute;
-  
+  bottom: 0;
+  z-index:2;
 }
-.Parent  
-{
-  position: relative;
+
+.pl {
+  left: 0;
+  top: 50%;
+  z-index:2;
+  transform: translateY(-50%);
 }
-.pu,.pr,.pd,.pl {
-  position: absolute;
-}
-.pu{
-  height: 35px;
-  width: 25px;
-  left: 40px;
-  position: relative; 
-  margin-bottom: 30px;
-  z-index: 3;
-}
-.pr{
-  height: 35px;
-  width: 25px;
-  left: 50px;
-  top: 0px;
-  position: relative;
-  z-index: 3;
-}
-.pd{
-  height: 35px;
-  width: 25px;
-  left: 40px;
-  top: 58px;
-  position: absolute;
-  z-index: 3;
-  
-}
-.pl{
-  height: 35px;
-  width: 25px;
-  left:0px;
-  top: 25px;
-  position: absolute;
-  z-index: 3;
-}
-.inputs{
+
+.inputs {
   margin-left: 50px;
   margin-top: 10px;
 }
