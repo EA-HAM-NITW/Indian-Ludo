@@ -10,23 +10,45 @@ import Bluecircles from './Bluecircles';
 import "../App.css";
 import Yellowcircles from './Yellowcircles';
 
-
-function Board() {
+function Board({ frontGavulluCount }) {
   const vertical = [ '1', '2', '3', '4', '5' ];
   const horizontal = ['a', 'b', 'c', 'd', 'e'];
-  const [marginLeft, setMarginLeft] = useState(0);  // State to manage marginLeft
-  const [marginBottom, setMarginBottom] = useState(0); // State to manage marginTop
+  const [marginguLeft, setMarginguLeft] = useState(0);  // State to manage marginLeft
+  const [marginguBottom, setMarginguBottom] = useState(0);
+  
+  // State to manage marginTop
+  const [margingrLeft, setMargingrLeft] = useState(0);  // State to manage marginLeft
+  const [margingrBottom, setMargingrBottom] = useState(0);
+
+  const [margingdLeft, setMargingdLeft] = useState(0);  // State to manage marginLeft
+  const [margingdBottom, setMargingdBottom] = useState(0);
+
+  const [marginglLeft, setMarginglLeft] = useState(0);  // State to manage marginLeft
+  const [marginglBottom, setMarginglBottom] = useState(0);
+
   const [marginbLeft, setMarginbLeft] = useState(0); 
   const [marginbBottom, setMarginbBottom] = useState(0);
+
   const [marginrLeft, setMarginrLeft] = useState(0); 
   const [marginrBottom, setMarginrBottom] = useState(0);
+
   const [marginyLeft, setMarginyLeft] = useState(0);  // State to manage marginLeft
   const [marginyBottom, setMarginyBottom] = useState(0); 
-  const [position, setPosition] = useState({ h: 'c', v: '1' }); // State to track current position, initial position set to 'a' and '3'
+
+  const [positiongu, setPositiongu] = useState({ h: 'c', v: '1' }); 
+  const [positiongr, setPositiongr] = useState({ h: 'c', v: '1' }); 
+  const [positiongd, setPositiongd] = useState({ h: 'c', v: '1' }); 
+  const [positiongl, setPositiongl] = useState({ h: 'c', v: '1' });
+  // State to track current position, initial position set to 'a' and '3'
   const [positionb, setbPosition] = useState({ h: 'c', v: '5' });
   const [positionr, setrPosition] = useState({ h: 'a', v: '3' });
   const [positiony, setyPosition] = useState({ h: 'e', v: '3' });
-  const imageRef = useRef(null);
+
+  const imageguRef = useRef(null);
+  const imagegrRef = useRef(null);
+  const imagegdRef = useRef(null);
+  const imageglRef = useRef(null);
+
   const imagebRef = useRef(null);
   const imagerRef = useRef(null);
   const imageyRef = useRef(null);
@@ -44,95 +66,238 @@ function Board() {
   const inputRef = useRef(null);
   const [value, setValue] = useState(0);
 
-  const Inputcheckgreen = () => {
-    const inputValue = parseInt(inputRef.current.value, 10);
-    if (!isNaN(inputValue)) {
-      setValue(inputValue);
-      moveImagegreen(inputValue);
+  const handlePawnClickgu = () => {
+    if (frontGavulluCount > 0) {
+      console.log(frontGavulluCount);
+      moveImagegreenup(frontGavulluCount);
     }
   };
-  const Inputcheckblue = () => {
-    const inputValue = parseInt(inputRef.current.value, 10);
-    if (!isNaN(inputValue)) {
-      setValue(inputValue);
-      moveImageblue(inputValue);
+  const handlePawnClickgr = () => {
+    if (frontGavulluCount > 0) {
+      console.log(frontGavulluCount);
+      moveImagegreenright(frontGavulluCount);
     }
   };
-  const Inputcheckred = () => {
-    const inputValue = parseInt(inputRef.current.value, 10);
-    if (!isNaN(inputValue)) {
-      setValue(inputValue);
-      moveImagered(inputValue);
+  const handlePawnClickgd = () => {
+    if (frontGavulluCount > 0) {
+      console.log(frontGavulluCount);
+      moveImagegreendown(frontGavulluCount);
     }
   };
-  const Inputcheckyellow = () => {
-    const inputValue = parseInt(inputRef.current.value, 10);
-    if (!isNaN(inputValue)) {
-      setValue(inputValue);
-      moveImageyellow(inputValue);
+  const handlePawnClickgl = () => {
+    if (frontGavulluCount > 0) {
+      console.log(frontGavulluCount);
+      moveImagegreenleft(frontGavulluCount);
     }
   };
-   const resetGreenPawn = () => {
-    setPosition({ h: 'c', v: '1' });
-    setMarginLeft(0);
-    setMarginBottom(0);
-  };
+  
+  // const Inputcheckgreen = () => {
+  //   const inputValue = parseInt(inputRef.current.value, 10);
+  //   if (!isNaN(inputValue)) {
+  //     setValue(inputValue);
+  //     moveImagegreen(inputValue);
+  //   }
+  // };
+  // const Inputcheckblue = () => {
+  //   const inputValue = parseInt(inputRef.current.value, 10);
+  //   if (!isNaN(inputValue)) {
+  //     setValue(inputValue);
+  //     moveImageblue(inputValue);
+  //   }
+  // };
+  // const Inputcheckred = () => {
+  //   const inputValue = parseInt(inputRef.current.value, 10);
+  //   if (!isNaN(inputValue)) {
+  //     setValue(inputValue);
+  //     moveImagered(inputValue);
+  //   }
+  // };
+  // const Inputcheckyellow = () => {
+  //   const inputValue = parseInt(inputRef.current.value, 10);
+  //   if (!isNaN(inputValue)) {
+  //     setValue(inputValue);
+  //     moveImageyellow(inputValue);
+  //   }
+  // };
+  //  const resetGreenPawn = () => {
+  //   setPosition({ h: 'c', v: '1' });
+  //   setMarginguLeft(0);
+  //   setMarginguBottom(0);
+  // };
 
-  const checkCollision = (newPosition, currentPawn) => {
-    // console.log(newPosition.h);
-    // console.log(newPosition.v);
-    // console.log(position.h);
-    // console.log(position.v);
-    // console.log(currentPawn);
-    if (newPosition.h === position.h && newPosition.v === position.v && currentPawn !== 'green') 
-     {console.log('Yes');
-      resetGreenPawn();
-    }
-  };
-  const moveImagegreen = (steps) => {
+  // const checkCollision = (newPosition, currentPawn) => {
+  //   // console.log(newPosition.h);
+  //   // console.log(newPosition.v);
+  //   // console.log(position.h);
+  //   // console.log(position.v);
+  //   // console.log(currentPawn);
+  //   if (newPosition.h === position.h && newPosition.v === position.v && currentPawn !== 'green') 
+  //    {console.log('Yes');
+  //     resetGreenPawn();
+  //   }
+  // };
+  const moveImagegreenup = (steps) => {
     const stepDuration = 1000; // 1 second
 
     for (let i = 0; i < steps; i++) {
       setTimeout(() => {
-        setPosition((prevPosition) => {
+        setPositiongu((prevPosition) => {
           let newH = prevPosition.h;
           let newV = prevPosition.v;
-          let newMarginLeft = marginLeft - (i + 1) * 100;
-          let newMarginBottom = marginBottom; // Initialize outside conditional
+          let newMarginLeft = marginguLeft - (i + 1) * 100;
+          let newMarginBottom = marginguBottom;
 
           newH = String.fromCharCode(newH.charCodeAt(0) - 1);
-          console.log(newH,newV);
+          console.log(newH,newV,newMarginLeft,newMarginBottom);
           if (newH < 'a') {
             newH = 'a';
             newV = String.fromCharCode(newV.charCodeAt(0) + 1);
-            newMarginBottom =marginBottom- (i-1) * 100; // Update marginBottom
+            newMarginBottom = marginguBottom - (i + 1) * 100;
             newMarginLeft = -200; // Assuming it should stop at the edge
-            console.log(newH,newV);
-            console.log(newMarginBottom);
+            console.log(newH,newV,newMarginLeft,newMarginBottom);
           }
-if(newV>'5' ){
-  newV='5';
-  newH=String.fromCharCode(newH.charCodeAt(0) + 1);
-  newMarginLeft = marginLeft + (1) * 100;
-  newMarginBottom=-400;
-  console.log(newH,newV);
-}
-          setMarginLeft(newMarginLeft);
-          setMarginBottom(newMarginBottom);
+          if (newV > '5') {
+            newV = '5';
+            newH = String.fromCharCode(newH.charCodeAt(0) + 1);
+            newMarginLeft = marginguLeft + 100;
+            newMarginBottom = -400;
+          }
 
-          // Apply the CSS transition effect
+          setMarginguLeft(newMarginLeft);
+          setMarginguBottom(newMarginBottom);
+
           const g = document.getElementById('pu');
           if (g) {
             g.style.transition = 'margin 0.5s';
           }
 
-          return { h: newH, v: newV }; // Update position
+          return { h: newH, v: newV };
         });
-
-        // console.log(`Position: ${position.h}${position.v}`);
       }, i * stepDuration);
     }
   };
+
+  const moveImagegreenright = (steps) => {
+    const stepDuration = 1000; // 1 second
+
+    for (let i = 0; i < steps; i++) {
+      setTimeout(() => {
+        setPositiongr((prevPosition) => {
+          let newgrH = prevPosition.h;
+          let newgrV = prevPosition.v;
+          let newMargingrLeft = margingrLeft - (i + 1) * 100;
+          let newMargingrBottom = margingrBottom;
+
+          newgrH = String.fromCharCode(newgrH.charCodeAt(0) - 1);
+          console.log(newgrH,newgrV,newMargingrLeft,newMargingrBottom);
+          if (newgrH < 'a') {
+            newgrH = 'a';
+            newgrV = String.fromCharCode(newgrV.charCodeAt(0) + 1);
+            newMargingrBottom = margingrBottom - (i + 1) * 100;
+            newMargingrLeft = -200; // Assuming it should stop at the edge
+            console.log(newgrH,newgrV,newMargingrLeft,newMargingrBottom);
+          }
+          if (newgrV > '5') {
+            newgrV = '5';
+            newgrH = String.fromCharCode(newgrH.charCodeAt(0) + 1);
+            newMargingrLeft = margingrLeft + 100;
+            newMargingrBottom = -400;
+          }
+
+          setMargingrLeft(newMargingrLeft);
+          setMargingrBottom(newMargingrBottom);
+
+          const g = document.getElementById('pr');
+          if (g) {
+            g.style.transition = 'margin 0.5s';
+          }
+
+          return { h: newgrH, v: newgrV };
+        });
+      }, i * stepDuration);
+    }
+  };
+  const moveImagegreendown = (steps) => {
+    const stepDuration = 1000; // 1 second
+
+    for (let i = 0; i < steps; i++) {
+      setTimeout(() => {
+        setPositiongd((prevPosition) => {
+          let newgdH = prevPosition.h;
+          let newgdV = prevPosition.v;
+          let newMargingdLeft = margingdLeft - (i + 1) * 100;
+          let newMargingdBottom = margingdBottom;
+
+          newgdH = String.fromCharCode(newgdH.charCodeAt(0) - 1);
+          console.log(newgdH,newgdV,newMargingdLeft,newMargingdBottom);
+          if (newgdH < 'a') {
+            newgdH = 'a';
+            newgdV = String.fromCharCode(newgdV.charCodeAt(0) + 1);
+            newMargingdBottom = margingdBottom - (i + 1) * 100;
+            newMargingdLeft = -200; // Assuming it should stop at the edge
+            console.log(newgdH,newgdV,newMargingdLeft,newMargingdBottom);
+          }
+          if (newgdV > '5') {
+            newgdV = '5';
+            newgdH = String.fromCharCode(newgdH.charCodeAt(0) + 1);
+            newMargingdLeft = margingdLeft + 100;
+            newMargingdBottom = -400;
+          }
+
+          setMargingdLeft(newMargingdLeft);
+          setMargingdBottom(newMargingdBottom);
+
+          const g = document.getElementById('pd');
+          if (g) {
+            g.style.transition = 'margin 0.5s';
+          }
+
+          return { h: newgdH, v: newgdV };
+        });
+      }, i * stepDuration);
+    }
+  };
+  const moveImagegreenleft = (steps) => {
+    const stepDuration = 1000; // 1 second
+
+    for (let i = 0; i < steps; i++) {
+      setTimeout(() => {
+        setPositiongl((prevPosition) => {
+          let newglH = prevPosition.h;
+          let newglV = prevPosition.v;
+          let newMarginglLeft = marginglLeft - (i + 1) * 100;
+          let newMarginglBottom = marginglBottom;
+
+          newglH = String.fromCharCode(newglH.charCodeAt(0) - 1);
+          console.log(newglH,newglV,newMarginglLeft,newMarginglBottom);
+          if (newglH < 'a') {
+            newglH = 'a';
+            newglV = String.fromCharCode(newglV.charCodeAt(0) + 1);
+            newMarginglBottom = marginglBottom - (i + 1) * 100;
+            newMarginglLeft = -200; // Assuming it should stop at the edge
+            console.log(newglH,newglV,newMarginglLeft,newMarginglBottom);
+          }
+          if (newglV > '5') {
+            newglV = '5';
+            newglH = String.fromCharCode(newglH.charCodeAt(0) + 1);
+            newMarginglLeft = marginglLeft + 100;
+            newMarginglBottom = -400;
+          }
+
+          setMarginglLeft(newMarginglLeft);
+          setMarginglBottom(newMarginglBottom);
+
+          const g = document.getElementById('pl');
+          if (g) {
+            g.style.transition = 'margin 0.5s';
+          }
+
+          return { h: newglH, v: newglV };
+        });
+      }, i * stepDuration);
+    }
+  };
+
   const moveImageblue = (steps) => {
     const stepDuration = 1000;
 
@@ -266,36 +431,42 @@ console.log(newMarginyBottom);
                   <Strikes />
                   <Greencircle />
                   <img
-                    ref={imageRef}
+                    ref={imageguRef}
                     src={greenPawn}
                     alt='Green Pawn'
                     className='pu'
                     id='pu'
-                    style={{ marginLeft: `${marginLeft}px`, marginBottom: `${marginBottom}px` }}
+                    style={{ marginLeft: `${marginguLeft}px`, marginBottom: `${marginguBottom}px` }}
+                    onClick={handlePawnClickgu}
                   />
                   <img
-                    
+                    ref={imagegrRef}
                     src={greenPawn}
                     alt='Green Pawn'
                     className='pr'
                     id='pr'
-                  
+                    style={{ marginLeft: `${margingrLeft}px`, marginBottom: `${margingrBottom}px` }}
+                    onClick={handlePawnClickgr}
                   />
+                  
+                   
                   <img
-                    // ref={imageRef}
+                    ref={imagegdRef}
                     src={greenPawn}
                     alt='Green Pawn'
                     className='pd'
                     id='pd'
-                    // style={{ marginLeft: `${marginLeft}px`, marginTop: `${marginBottom}px` }}
+                    style={{ marginLeft: `${margingdLeft}px`, marginTop: `${margingdBottom}px` }}
+                    onClick={handlePawnClickgd}
                   />
-                  <img
-                    // ref={imageRef}
+               <img
+                    ref={imageglRef}
                     src={greenPawn}
                     alt='Green Pawn'
                     className='pl'
                     id='pl'
-                  //   style={{ marginLeft: `${marginLeft}px`, marginTop: `${marginBottom}px` }}
+                    style={{ marginLeft: `${marginglLeft}px`, marginTop: `${marginglBottom}px` }}
+                    onClick={handlePawnClickgl}
                   />
                 </div>
               )}
@@ -303,7 +474,7 @@ console.log(newMarginyBottom);
                 <div className='Parent'>
                   <Bluecircles/>
                   <Strikes />
-                  <img
+                  {/* <img
   src={bluePawn}
   alt='Blue Pawn'
   className='pu'
@@ -313,14 +484,14 @@ console.log(newMarginyBottom);
 />
                   <img src={bluePawn} alt='Blue Pawn' className='pr' />
                   <img src={bluePawn} alt='Blue Pawn' className='pl' />
-                  <img src={bluePawn} alt='Blue Pawn' className='pd' />
+                  <img src={bluePawn} alt='Blue Pawn' className='pd' /> */}
                 </div>
               )}
               {h === 'c' && v === '1' && (
                 <div className='Parent'>
                   <Redcircles/>
                   <Strikes />
-                  <img
+                  {/* <img
   src={redPawn}
   alt='Red Pawn'
   className='pu'
@@ -351,7 +522,7 @@ console.log(newMarginyBottom);
   id='rpd'
   style={{ marginLeft: `${selectedRedPawn === 'rpd' ? marginrLeft : 0}px`, marginBottom: `${selectedRedPawn === 'rpd' ? marginrBottom : 0}px` }}
   onClick={() => setSelectedRedPawn('rpd')}
-/>
+/> */}
 
                 </div>
               )}
@@ -359,7 +530,7 @@ console.log(newMarginyBottom);
                 <div className='Parent'>
                   <Yellowcircles/>
                   <Strikes />
-                  <img
+                  {/* <img
                     // ref={imageRef}
                     src={yellowPawn}
                     alt='Yellow Pawn'
@@ -369,7 +540,7 @@ console.log(newMarginyBottom);
                   />
                   <img src={yellowPawn} alt='Yellow Pawn' className='pr' />
                   <img src={yellowPawn} alt='Yellow Pawn' className='pd' />
-                  <img src={yellowPawn} alt='Yellow Pawn' className='pl' />
+                  <img src={yellowPawn} alt='Yellow Pawn' className='pl' /> */}
                 </div>
               )}
             </div>
@@ -379,13 +550,13 @@ console.log(newMarginyBottom);
       {/* <button className='inputs' onClick={moveImage}>
         Click me
       </button> */}
-      <input id='inputfield' ref={inputRef}></input>
+      {/* <input id='inputfield' ref={inputRef}></input>
       <button onClick={Inputcheckgreen}>Move Green</button>
       <button onClick={Inputcheckblue}>Move Blue</button>
       <button onClick={Inputcheckred}>Move Red</button>
-      <button onClick={Inputcheckyellow}>Move Yellow</button>
+      <button onClick={Inputcheckyellow}>Move Yellow</button> */}
     </div>
   );
 }
 
-export default Board; 
+export default Board;
