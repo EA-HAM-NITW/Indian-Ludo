@@ -26,8 +26,17 @@ function Board({ frontGavulluCount }) {
   const [marginglLeft, setMarginglLeft] = useState(0);  // State to manage marginLeft
   const [marginglBottom, setMarginglBottom] = useState(0);
 
-  const [marginbLeft, setMarginbLeft] = useState(0); 
-  const [marginbBottom, setMarginbBottom] = useState(0);
+  const [marginbuLeft, setMarginbuLeft] = useState(0); 
+  const [marginbuBottom, setMarginbuBottom] = useState(0);
+
+  const [marginbrLeft, setMarginbrLeft] = useState(0); 
+  const [marginbrBottom, setMarginbrBottom] = useState(0);
+
+  const [marginbdLeft, setMarginbdLeft] = useState(0); 
+  const [marginbdBottom, setMarginbdBottom] = useState(0);
+
+  const [marginblLeft, setMarginblLeft] = useState(0); 
+  const [marginblBottom, setMarginblBottom] = useState(0);
 
   const [marginrLeft, setMarginrLeft] = useState(0); 
   const [marginrBottom, setMarginrBottom] = useState(0);
@@ -40,7 +49,11 @@ function Board({ frontGavulluCount }) {
   const [positiongd, setPositiongd] = useState({ h: 'c', v: '1' }); 
   const [positiongl, setPositiongl] = useState({ h: 'c', v: '1' });
   // State to track current position, initial position set to 'a' and '3'
-  const [positionb, setbPosition] = useState({ h: 'c', v: '5' });
+  const [positionbu, setPositionbu] = useState({ h: 'c', v: '5' });
+  const [positionbr, setPositionbr] = useState({ h: 'c', v: '5' });
+  const [positionbd, setPositionbd] = useState({ h: 'c', v: '5' });
+  const [positionbl, setPositionbl] = useState({ h: 'c', v: '5' });
+  
   const [positionr, setrPosition] = useState({ h: 'a', v: '3' });
   const [positiony, setyPosition] = useState({ h: 'e', v: '3' });
 
@@ -49,7 +62,11 @@ function Board({ frontGavulluCount }) {
   const imagegdRef = useRef(null);
   const imageglRef = useRef(null);
 
-  const imagebRef = useRef(null);
+  const imagebuRef = useRef(null);
+  const imagebrRef = useRef(null);
+  const imagebdRef = useRef(null);
+  const imageblRef = useRef(null);
+
   const imagerRef = useRef(null);
   const imageyRef = useRef(null);
   const [selectedRedPawn, setSelectedRedPawn] = useState(null);
@@ -90,7 +107,30 @@ function Board({ frontGavulluCount }) {
       moveImagegreenleft(frontGavulluCount);
     }
   };
-  
+  const handlePawnClickbu = () => {
+    if (frontGavulluCount > 0) {
+      console.log(frontGavulluCount);
+      moveImageblueup(frontGavulluCount);
+    }
+  };
+  const handlePawnClickbr = () => {
+    if (frontGavulluCount > 0) {
+      console.log(frontGavulluCount);
+      moveImageblueright(frontGavulluCount);
+    }
+  };
+  const handlePawnClickbd = () => {
+    if (frontGavulluCount > 0) {
+      console.log(frontGavulluCount);
+      moveImagebluedown(frontGavulluCount);
+    }
+  };
+  const handlePawnClickbl = () => {
+    if (frontGavulluCount > 0) {
+      console.log(frontGavulluCount);
+      moveImageblueleft(frontGavulluCount);
+    }
+  };
   // const Inputcheckgreen = () => {
   //   const inputValue = parseInt(inputRef.current.value, 10);
   //   if (!isNaN(inputValue)) {
@@ -218,45 +258,66 @@ function Board({ frontGavulluCount }) {
     }
   };
   const moveImagegreendown = (steps) => {
-    const stepDuration = 1000; // 1 second
-
+    const stepDuration = 1000;
+  
+    const path = [
+      { h: 'c', v: '1' }, // start
+      { h: 'b', v: '1' }, // (c,1) to (a,1)
+      { h: 'a', v: '1' }, // (b,1) to (a,1)
+      { h: 'a', v: '2' }, // (a,1) to (a,5)
+      { h: 'a', v: '3' }, // (a,2) to (a,5)
+      { h: 'a', v: '4' }, // (a,3) to (a,5)
+      { h: 'a', v: '5' }, // (a,4) to (a,5)
+      { h: 'b', v: '5' }, // (a,5) to (e,5)
+      { h: 'c', v: '5' }, // (b,5) to (e,5)
+      { h: 'd', v: '5' }, // (c,5) to (e,5)
+      { h: 'e', v: '5' }, // (d,5) to (e,5)
+      { h: 'e', v: '4' }, // (e,5) to (e,1)
+      { h: 'e', v: '3' }, // (e,4) to (e,1)
+      { h: 'e', v: '2' }, // (e,3) to (e,1)
+      { h: 'e', v: '1' }, // (e,2) to (e,1)
+      { h: 'd', v: '1' }, // (e,1) to (a,1)
+      { h: 'd', v: '2' }, // (d,1) to (a,1)
+      { h: 'd', v: '3' }, // (d,2) to (a,1)
+      { h: 'd', v: '4' }, // (d,3) to (a,1)
+      { h: 'c', v: '4' }, // (d,4) to (c,4)
+      { h: 'b', v: '4' }, // (c,4) to (b,4)
+      { h: 'b', v: '3' }, // (b,4) to (b,3)
+      { h: 'b', v: '2' }, // (b,3) to (b,2)
+      { h: 'c', v: '2' }, // (b,2) to (c,2)
+      { h: 'c', v: '3' }, // (c,2) to (c,3)
+    ];
+  
+    let currentIndex = path.findIndex(pos => pos.h === positiongd.h && pos.v === positiongd.v);
+    let currentMarginLeft = margingdLeft;
+    let currentMarginBottom = margingdBottom;
+  
     for (let i = 0; i < steps; i++) {
       setTimeout(() => {
-        setPositiongd((prevPosition) => {
-          let newgdH = prevPosition.h;
-          let newgdV = prevPosition.v;
-          let newMargingdLeft = margingdLeft - (i + 1) * 100;
-          let newMargingdBottom = margingdBottom;
-
-          newgdH = String.fromCharCode(newgdH.charCodeAt(0) - 1);
-          console.log(newgdH,newgdV,newMargingdLeft,newMargingdBottom);
-          if (newgdH < 'a') {
-            newgdH = 'a';
-            newgdV = String.fromCharCode(newgdV.charCodeAt(0) + 1);
-            newMargingdBottom = margingdBottom - (i + 1) * 100;
-            newMargingdLeft = -200; // Assuming it should stop at the edge
-            console.log(newgdH,newgdV,newMargingdLeft,newMargingdBottom);
-          }
-          if (newgdV > '5') {
-            newgdV = '5';
-            newgdH = String.fromCharCode(newgdH.charCodeAt(0) + 1);
-            newMargingdLeft = margingdLeft + 100;
-            newMargingdBottom = -400;
-          }
-
-          setMargingdLeft(newMargingdLeft);
-          setMargingdBottom(newMargingdBottom);
-
-          const g = document.getElementById('pd');
-          if (g) {
-            g.style.transition = 'margin 0.5s';
-          }
-
-          return { h: newgdH, v: newgdV };
-        });
+        currentIndex = (currentIndex + 1) % path.length;
+        let nextPosition = path[currentIndex];
+  
+        let newMargingdLeft = currentMarginLeft + (nextPosition.h.charCodeAt(0) - path[currentIndex - 1].h.charCodeAt(0)) * 100;
+        let newMargingdBottom = currentMarginBottom - (nextPosition.v - path[currentIndex - 1].v) * 100;
+        console.log(nextPosition.h,nextPosition.v);
+        console.log(newMargingdLeft,newMargingdBottom);
+        setMargingdLeft(newMargingdLeft);
+        setMargingdBottom(newMargingdBottom);
+  
+        currentMarginLeft = newMargingdLeft;
+        currentMarginBottom = newMargingdBottom;
+  
+        setPositiongd(nextPosition);
+  
+        // Apply the CSS transition effect
+        const g = document.getElementById('gpd');
+        if (g) {
+          g.style.transition = 'margin 0.5s';
+        }
       }, i * stepDuration);
     }
   };
+  
   const moveImagegreenleft = (steps) => {
     const stepDuration = 1000; // 1 second
 
@@ -298,27 +359,27 @@ function Board({ frontGavulluCount }) {
     }
   };
 
-  const moveImageblue = (steps) => {
+  const moveImageblueup = (steps) => {
     const stepDuration = 1000;
 
     for (let i = 0; i < steps; i++) {
       setTimeout(() => {
-        setbPosition((prevPosition) => {
-          let newbH = prevPosition.h;
-          let newbV = prevPosition.v;
-          let newMarginbLeft = marginbLeft + (i + 1) * 100;
-          let newMarginbBottom = marginbBottom; // Initialize outside conditional
+        setPositionbu((prevPosition) => {
+          let newbuH = prevPosition.h;
+          let newbuV = prevPosition.v;
+          let newMarginbuLeft = marginbuLeft + (i + 1) * 100;
+          let newMarginbuBottom = marginbuBottom; // Initialize outside conditional
 
-          newbH = String.fromCharCode(newbH.charCodeAt(0) + 1);
-          console.log(newbH,newbV);
-          console.log(marginbLeft)
-          if (newbH >= 'e') {
-            newbH = 'e';
-            newbV = String.fromCharCode(newbV.charCodeAt(0) - 1);
-            newMarginbBottom =marginbBottom+ (1) * 100; // Update marginBottom
-            newMarginbLeft = 200; // Assuming it should stop at the edge
-            console.log(newbH,newbV);
-            console.log(newMarginbBottom);
+          newbuH = String.fromCharCode(newbuH.charCodeAt(0) + 1);
+          console.log(newbuH,newbuV);
+          console.log(marginbuLeft)
+          if (newbuH >= 'e') {
+            newbuH = 'e';
+            newbuV = String.fromCharCode(newbuV.charCodeAt(0) - 1);
+            newMarginbuBottom =marginbuBottom+ (1) * 100; // Update marginBottom
+            newMarginbuLeft = 200; // Assuming it should stop at the edge
+            console.log(newbuH,newbuV);
+            console.log(newMarginbuBottom);
           }
 // if(newV>'5' ){
 //   newV='5';
@@ -327,8 +388,8 @@ function Board({ frontGavulluCount }) {
 //   newMarginBottom=-400;
 //   console.log(newH,newV);
 // }
-          setMarginbLeft(newMarginbLeft);
-          setMarginbBottom(newMarginbBottom);
+          setMarginbuLeft(newMarginbuLeft);
+          setMarginbuBottom(newMarginbuBottom);
 
           // Apply the CSS transition effect
           const g = document.getElementById('bpu');
@@ -336,7 +397,160 @@ function Board({ frontGavulluCount }) {
             g.style.transition = 'margin 0.5s';
           }
 
-          return { h: newbH, v: newbV }; // Update position
+          return { h: newbuH, v: newbuV }; // Update position
+        });
+
+        // console.log(`Position: ${position.h}${position.v}`);
+      }, i * stepDuration);
+    }
+  };
+  const moveImageblueright = (steps) => {
+    const stepDuration = 1000;
+
+    for (let i = 0; i < steps; i++) {
+      setTimeout(() => {
+        setPositionbr((prevPosition) => {
+          let newbrH = prevPosition.h;
+          let newbrV = prevPosition.v;
+          let newMarginbrLeft = marginbrLeft + (i + 1) * 100;
+          let newMarginbrBottom = marginbrBottom; // Initialize outside conditional
+
+          newbrH = String.fromCharCode(newbrH.charCodeAt(0) + 1);
+          console.log(newbrH,newbrV);
+          console.log(marginbrLeft)
+          if (newbrH >= 'e') {
+            newbrH = 'e';
+            newbrV = String.fromCharCode(newbrV.charCodeAt(0) - 1);
+            newMarginbrBottom =marginbrBottom+ (1) * 100; // Update marginBottom
+            newMarginbrLeft = 200; // Assuming it should stop at the edge
+            console.log(newbrH,newbrV);
+            console.log(newMarginbrBottom);
+          }
+// if(newV>'5' ){
+//   newV='5';
+//   newH=String.fromCharCode(newH.charCodeAt(0) + 1);
+//   newMarginLeft = marginLeft + (1) * 100;
+//   newMarginBottom=-400;
+//   console.log(newH,newV);
+// }
+          setMarginbrLeft(newMarginbrLeft);
+          setMarginbrBottom(newMarginbrBottom);
+
+          // Apply the CSS transition effect
+          const g = document.getElementById('bpr');
+          if (g) {
+            g.style.transition = 'margin 0.5s';
+          }
+
+          return { h: newbrH, v: newbrV }; // Update position
+        });
+
+        // console.log(`Position: ${position.h}${position.v}`);
+      }, i * stepDuration);
+    }
+  };
+  const moveImagebluedown = (steps) => {
+    const stepDuration = 1000;
+  
+    const path = [
+      { h: 'c', v: '5' }, // start
+      { h: 'd', v: '5' }, // (c,5) to (e,5)
+      { h: 'e', v: '5' }, // (d,5) to (e,5)
+      { h: 'e', v: '4' }, // (e,5) to (e,1)
+      { h: 'e', v: '3' }, // (e,4) to (e,1)
+      { h: 'e', v: '2' }, // (e,3) to (e,1)
+      { h: 'e', v: '1' }, // (e,2) to (e,1)
+      { h: 'd', v: '1' }, // (e,1) to (a,1)
+      { h: 'c', v: '1' }, // (d,1) to (a,1)
+      { h: 'b', v: '1' }, // (c,1) to (a,1)
+      { h: 'a', v: '1' }, // (b,1) to (a,1)
+      { h: 'a', v: '2' }, // (a,1) to (a,5)
+      { h: 'a', v: '3' }, // (a,2) to (a,5)
+      { h: 'a', v: '4' }, // (a,3) to (a,5)
+      { h: 'a', v: '5' }, // (a,4) to (a,5)
+      { h: 'b', v: '5' }, // (a,5) to (c,5)
+      { h: 'b', v: '4' }, // (b,5) to (b,4)
+      { h: 'b', v: '3' },
+      { h: 'b', v: '2' },
+      { h: 'c', v: '2' },
+      { h: 'd', v: '2' },
+      { h: 'd', v: '3' },
+      { h: 'd', v: '4' },
+      { h: 'c', v: '4' },
+      { h: 'c', v: '3' },
+    ];
+  
+    let currentIndex = path.findIndex(pos => pos.h === positionbd.h && pos.v === positionbd.v);
+    let currentMarginLeft = marginbdLeft;
+    let currentMarginBottom = marginbdBottom;
+  
+    for (let i = 0; i < steps; i++) {
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % path.length;
+        let nextPosition = path[currentIndex];
+  
+        let newMarginbdLeft = currentMarginLeft + (nextPosition.h.charCodeAt(0) - path[currentIndex - 1].h.charCodeAt(0)) * 100;
+        let newMarginbdBottom = currentMarginBottom - (nextPosition.v - path[currentIndex - 1].v) * 100;
+  console.log(nextPosition.h,nextPosition.v);
+  console.log(newMarginbdLeft,newMarginbdBottom);
+        setMarginbdLeft(newMarginbdLeft);
+        setMarginbdBottom(newMarginbdBottom);
+  
+        currentMarginLeft = newMarginbdLeft;
+        currentMarginBottom = newMarginbdBottom;
+  
+        setPositionbd(nextPosition);
+  
+        // Apply the CSS transition effect
+        const g = document.getElementById('bpd');
+        if (g) {
+          g.style.transition = 'margin 0.5s';
+        }
+      }, i * stepDuration);
+    }
+  };
+  
+  
+
+  const moveImageblueleft = (steps) => {
+    const stepDuration = 1000;
+
+    for (let i = 0; i < steps; i++) {
+      setTimeout(() => {
+        setPositionbl((prevPosition) => {
+          let newblH = prevPosition.h;
+          let newblV = prevPosition.v;
+          let newMarginblLeft = marginblLeft + (i + 1) * 100;
+          let newMarginblBottom = marginblBottom; // Initialize outside conditional
+
+          newblH = String.fromCharCode(newblH.charCodeAt(0) + 1);
+          console.log(newblH,newblV);
+          console.log(marginblLeft)
+          if (newblH >= 'e') {
+            newblH = 'e';
+            newblV = String.fromCharCode(newblV.charCodeAt(0) - 1);
+            newMarginblBottom =marginblBottom+ (1) * 100; // Update marginBottom
+            newMarginblLeft = 200; // Assuming it should stop at the edge
+            console.log(newblH,newblV);
+            console.log(newMarginblBottom);
+          }
+// if(newV>'5' ){
+//   newV='5';
+//   newH=String.fromCharCode(newH.charCodeAt(0) + 1);
+//   newMarginLeft = marginLeft + (1) * 100;
+//   newMarginBottom=-400;
+//   console.log(newH,newV);
+// }
+          setMarginblLeft(newMarginblLeft);
+          setMarginblBottom(newMarginblBottom);
+
+          // Apply the CSS transition effect
+          const g = document.getElementById('bpl');
+          if (g) {
+            g.style.transition = 'margin 0.5s';
+          }
+
+          return { h: newblH, v: newblV }; // Update position
         });
 
         // console.log(`Position: ${position.h}${position.v}`);
@@ -439,15 +653,16 @@ console.log(newMarginyBottom);
                     style={{ marginLeft: `${marginguLeft}px`, marginBottom: `${marginguBottom}px` }}
                     onClick={handlePawnClickgu}
                   />
-                  <img
-                    ref={imagegrRef}
-                    src={greenPawn}
-                    alt='Green Pawn'
-                    className='pr'
-                    id='pr'
-                    style={{ marginLeft: `${margingrLeft}px`, marginBottom: `${margingrBottom}px` }}
-                    onClick={handlePawnClickgr}
-                  />
+                 <img
+  ref={imagegrRef}
+  src={greenPawn}
+  alt='Green Pawn'
+  className='pr'
+  id='pr'
+  style={{ marginLeft: `${margingrLeft}px`, marginBottom: `${margingrBottom}px` }}
+  onClick={handlePawnClickgr}
+/>
+
                   
                    
                   <img
@@ -456,7 +671,7 @@ console.log(newMarginyBottom);
                     alt='Green Pawn'
                     className='pd'
                     id='pd'
-                    style={{ marginLeft: `${margingdLeft}px`, marginTop: `${margingdBottom}px` }}
+                    style={{ marginLeft: `${margingdLeft}px`, marginBottom: `${margingdBottom}px` }}
                     onClick={handlePawnClickgd}
                   />
                <img
@@ -465,7 +680,7 @@ console.log(newMarginyBottom);
                     alt='Green Pawn'
                     className='pl'
                     id='pl'
-                    style={{ marginLeft: `${marginglLeft}px`, marginTop: `${marginglBottom}px` }}
+                    style={{ marginLeft: `${marginglLeft}px`, marginBottom: `${marginglBottom}px` }}
                     onClick={handlePawnClickgl}
                   />
                 </div>
@@ -474,17 +689,42 @@ console.log(newMarginyBottom);
                 <div className='Parent'>
                   <Bluecircles/>
                   <Strikes />
-                  {/* <img
+                  <img
+                  ref={imagebuRef}
   src={bluePawn}
   alt='Blue Pawn'
   className='pu'
   id='bpu'
-  style={{ marginLeft: `${selectedRedPawn === 'bpu' ? marginrLeft : 0}px`, marginBottom: `${selectedRedPawn === 'bpu' ? marginrBottom : 0}px` }}
-  onClick={() => setSelectedRedPawn('bpu')}
+  style={{ marginLeft: `${marginbuLeft}px`, marginBottom: `${marginbuBottom}px` }}
+                    onClick={handlePawnClickbu}
 />
-                  <img src={bluePawn} alt='Blue Pawn' className='pr' />
-                  <img src={bluePawn} alt='Blue Pawn' className='pl' />
-                  <img src={bluePawn} alt='Blue Pawn' className='pd' /> */}
+<img
+                  ref={imagebrRef}
+  src={bluePawn}
+  alt='Blue Pawn'
+  className='pr'
+  id='bpr'
+  style={{ marginLeft: `${marginbrLeft}px`, marginBottom: `${marginbrBottom}px` }}
+                    onClick={handlePawnClickbr}
+/>
+<img
+                  ref={imagebdRef}
+  src={bluePawn}
+  alt='Blue Pawn'
+  className='pd'
+  id='bpd'
+  style={{ marginLeft: `${marginbdLeft}px`, marginBottom: `${marginbdBottom}px` }}
+                    onClick={handlePawnClickbd}
+/>
+<img
+                  ref={imageblRef}
+  src={bluePawn}
+  alt='Blue Pawn'
+  className='pl'
+  id='bpl'
+  style={{ marginLeft: `${marginblLeft}px`, marginBottom: `${marginblBottom}px` }}
+                    onClick={handlePawnClickbl}
+/>
                 </div>
               )}
               {h === 'c' && v === '1' && (
