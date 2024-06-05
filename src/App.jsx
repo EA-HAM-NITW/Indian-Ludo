@@ -20,12 +20,14 @@ function App() {
   
 
   return (
-    <div className="container">
+    <div className='Outer_container'>
+      <div className='Inner_container1'>
      <Board frontGavulluCount={frontGavulluCount} />
-      <h1 className='Heading_app'>PLAY</h1>
+     </div>
+     <div className='Inner_container2'>
       {imagesVisible && <Images_front onCounts={handleCounts} />}
       <button onClick={handleButtonClick} className='Apnabutton'>LET'S ROLL</button>
-      <h1>Front Gavullu Count: {frontGavulluCount}</h1> {/* Display the countf value */}
+      </div>
     </div>
   );
 }

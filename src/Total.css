@@ -5,10 +5,9 @@
     flex-direction: column;
     align-items: center;
     border-color: black;
-    border-style: dotted;
     border-width: 2px;
-    width: 400px;
-    height:400px;
+    width: 500px;
+    height:450px;
     border-radius: 3px;
   }
   
@@ -19,13 +18,13 @@
   }
   
   .image-container img {
-    width: 120px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border: 3px solid #ccc;
     border-color: black;
     border-radius: 5px;
-    margin-left:25px;
+    margin-left:50px;
   }
   
   .count {

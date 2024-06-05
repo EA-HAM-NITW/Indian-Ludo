@@ -30,7 +30,7 @@ function Images_front({}) {
     }
 
     return (
-        <div className="image-container">
+        <div >
             <h2 className="count">The Number of front = {countf}</h2>
             <h2 className="count">The Number of back = {countb}</h2>
             <div className="images-container">{images}</div>
