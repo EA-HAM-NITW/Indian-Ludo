@@ -11,7 +11,7 @@ function App() {
 
   const handleButtonClick = () => {
     if (!imagesVisible) {
-      setPlayerCount(prevCount => prevCount + 1); 
+      setPlayerCount(prevCount => (prevCount)%4+1); 
     }
     setImagesVisible(prevVisible => !prevVisible);
     setIsPlayerTurn(false); // After button click, it's not player's turn
@@ -23,6 +23,8 @@ function App() {
     console.log("Back Gavullu Count:", counts.countb);
     setFrontGavulluCount(counts.countf);
   }; 
+
+  const playerColors = ['#388E3C', '#D32F2F', '#1976D2', '#FFA000']; // Dark shades of green, red, blue, and yellow
   
   return (
     <div className='Outer_container'>
@@ -32,11 +34,10 @@ function App() {
       <div className='Inner_container2'>
         {imagesVisible && <Images_front onCounts={handleCounts} />}
         <button onClick={handleButtonClick} className='Apnabutton'>LET'S ROLL</button>
-        <h2 className='player_name'>PLAYER {playerCount} HAS TO ROLL</h2>
+        <h2 style={{textAlign:'center',color: playerColors[playerCount - 1]}}>PLAYER {playerCount} HAS TO ROLL</h2>
       </div>
     </div>
   );
 }
 
 export default App;
-

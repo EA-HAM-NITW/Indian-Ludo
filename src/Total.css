@@ -33,4 +33,9 @@
     font-style: normal;
     color: black;
   }
+
+  .player_name {
+    text-align: center;
+    color: aqua;
+  }
   
