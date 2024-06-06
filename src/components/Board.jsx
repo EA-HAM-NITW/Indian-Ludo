@@ -192,23 +192,158 @@ function Board({ frontGavulluCount }) {
     }
   };
  
-  //  const resetGreenPawn = () => {
-  //   setPosition({ h: 'c', v: '1' });
-  //   setMarginguLeft(0);
-  //   setMarginguBottom(0);
-  // };
-
-  // const checkCollision = (newPosition, currentPawn) => {
-  //   // console.log(newPosition.h);
-  //   // console.log(newPosition.v);
-  //   // console.log(position.h);
-  //   // console.log(position.v);
-  //   // console.log(currentPawn);
-  //   if (newPosition.h === position.h && newPosition.v === position.v && currentPawn !== 'green') 
-  //    {console.log('Yes');
-  //     resetGreenPawn();
-  //   }
-  // };
+   const resetGreenPawnup = () => {
+    setPositiongu({ h: 'c', v: '1' });
+    setMarginguLeft(0);
+    setMarginguBottom(0);
+  };
+  const resetGreenPawnright = () => {
+    setPositiongr({ h: 'c', v: '1' });
+    setMargingrLeft(0);
+    setMargingrBottom(0);
+  };
+  const resetGreenPawndown = () => {
+    setPositiongd({ h: 'c', v: '1' });
+    setMargingdLeft(0);
+    setMargingdBottom(0);
+  };
+  const resetGreenPawnleft = () => {
+    setPositiongl({ h: 'c', v: '1' });
+    setMarginglLeft(0);
+    setMarginglBottom(0);
+  };
+  const resetBluePawnup = () => {
+    setPositionbu({ h: 'c', v: '5' });
+    setMarginbuLeft(0);
+    setMarginbuBottom(0);
+  };
+  const resetBluePawnright = () => {
+    setPositionbr({ h: 'c', v: '5' });
+    setMarginbrLeft(0);
+    setMarginbrBottom(0);
+  };
+  const resetBluePawndown = () => {
+    setPositionbd({ h: 'c', v: '5' });
+    setMarginbdLeft(0);
+    setMarginbdBottom(0);
+  };
+  const resetBluePawnleft = () => {
+    setPositionbl({ h: 'c', v: '5' });
+    setMarginblLeft(0);
+    setMarginblBottom(0);
+  };
+  const resetRedPawnup = () => {
+    setPositionru({ h: 'a', v: '3' });
+    setMarginruLeft(0);
+    setMarginruBottom(0);
+  };
+  const resetRedPawnright = () => {
+    setPositionrr({ h: 'a', v: '3' });
+    setMarginrrLeft(0);
+    setMarginrrBottom(0);
+  };
+  const resetRedPawndown = () => {
+    setPositionrd({ h: 'a', v: '3' });
+    setMarginrdLeft(0);
+    setMarginrdBottom(0);
+  };
+  const resetRedPawnleft = () => {
+    setPositionrl({ h: 'a', v: '3' });
+    setMarginrlLeft(0);
+    setMargingurlBottom(0);
+  };
+  const resetYellowPawnup = () => {
+    setPositionyu({ h: 'e', v: '3' });
+    setMarginyuLeft(0);
+    setMarginyuBottom(0);
+  };
+  const resetYellowPawnright = () => {
+    setPositionyr({ h: 'e', v: '3' });
+    setMarginyrLeft(0);
+    setMarginyrBottom(0);
+  };
+  const resetYellowPawndown = () => {
+    setPositionyd({ h: 'e', v: '3' });
+    setMarginydLeft(0);
+    setMarginydBottom(0);
+  };
+  const resetYellowPawnleft = () => {
+    setPositionyl({ h: 'e', v: '3' });
+    setMarginylLeft(0);
+    setMarginylBottom(0);
+  };
+  const checkCollisiongreen = (newPosition, currentPawn) => {
+    if (newPosition.h === positiongu.h && newPosition.v === positiongu.v && currentPawn !== 'green') 
+     {
+      resetGreenPawnup();
+    }
+   if (newPosition.h === positiongr.h && newPosition.v === positiongr.v && currentPawn !== 'green')
+      {
+        resetGreenPawnright();
+      }
+      if (newPosition.h === positiongd.h && newPosition.v === positiongd.v && currentPawn !== 'green')
+        {
+          resetGreenPawndown();
+        }
+        if (newPosition.h === positiongl.h && newPosition.v === positiongl.v && currentPawn !== 'green')
+          {
+            resetGreenPawnleft();
+          }
+  };
+  const checkCollisionblue = (newPosition, currentPawn) => {
+    if (newPosition.h === positionbu.h && newPosition.v === positionbu.v && currentPawn !== 'blue') 
+     {
+      resetBluePawnup();
+    }
+   if (newPosition.h === positionbr.h && newPosition.v === positionbr.v && currentPawn !== 'blue')
+      {
+        resetBluePawnright();
+      }
+      if (newPosition.h === positionbd.h && newPosition.v === positionbd.v && currentPawn !== 'blue')
+        {
+          resetBluePawndown();
+        }
+        if (newPosition.h === positionbl.h && newPosition.v === positionbl.v && currentPawn !== 'blue')
+          {
+            resetBluePawnleft();
+          }
+  };
+  const checkCollisionred = (newPosition, currentPawn) => {
+    if (newPosition.h === positionru.h && newPosition.v === positionru.v && currentPawn !== 'red') 
+     {
+      resetRedPawnup();
+    }
+   if (newPosition.h === positionrr.h && newPosition.v === positionrr.v && currentPawn !== 'red')
+      {
+        resetRedPawnright();
+      }
+      if (newPosition.h === positionrd.h && newPosition.v === positionrd.v && currentPawn !== 'red')
+        {
+          resetRedPawndown();
+        }
+        if (newPosition.h === positionrl.h && newPosition.v === positionrl.v && currentPawn !== 'red')
+          {
+            resetRedPawnleft();
+          }
+  };
+  const checkCollisionyellow = (newPosition, currentPawn) => {
+    if (newPosition.h === positionyu.h && newPosition.v === positionyu.v && currentPawn !== 'yellow') 
+     {
+      resetYellowPawnup();
+    }
+   if (newPosition.h === positionyr.h && newPosition.v === positionyr.v && currentPawn !== 'yellow')
+      {
+        resetYellowPawnright();
+      }
+      if (newPosition.h === positionyd.h && newPosition.v === positionyd.v && currentPawn !== 'yellow')
+        {
+          resetYellowPawndown();
+        }
+        if (newPosition.h === positionyl.h && newPosition.v === positionyl.v && currentPawn !== 'yellow')
+          {
+            resetYellowPawnleft();
+          }
+  };
   const moveImagegreenup = (steps) => {
     const stepDuration = 1000;
   
@@ -260,7 +395,9 @@ function Board({ frontGavulluCount }) {
         currentMarginBottom = newMarginguBottom;
   
         setPositiongu(nextPosition);
-  
+  checkCollisionblue(nextPosition,'green');
+  checkCollisionred(nextPosition,'green');
+  checkCollisionyellow(nextPosition,'green');
         // Apply the CSS transition effect
         const g = document.getElementById('gpu');
         if (g) {
@@ -320,7 +457,9 @@ function Board({ frontGavulluCount }) {
         currentMarginBottom = newMargingrBottom;
   
         setPositiongr(nextPosition);
-  
+        checkCollisionblue(nextPosition,'green');
+        checkCollisionred(nextPosition,'green');
+        checkCollisionyellow(nextPosition,'green');
         // Apply the CSS transition effect
         const g = document.getElementById('gpr');
         if (g) {
@@ -380,7 +519,9 @@ function Board({ frontGavulluCount }) {
         currentMarginBottom = newMargingdBottom;
   
         setPositiongd(nextPosition);
-  
+        checkCollisionblue(nextPosition,'green');
+        checkCollisionred(nextPosition,'green');
+        checkCollisionyellow(nextPosition,'green');
         // Apply the CSS transition effect
         const g = document.getElementById('gpd');
         if (g) {
@@ -440,7 +581,9 @@ function Board({ frontGavulluCount }) {
         currentMarginBottom = newMarginglBottom;
   
         setPositiongl(nextPosition);
-  
+        checkCollisionblue(nextPosition,'green');
+        checkCollisionred(nextPosition,'green');
+        checkCollisionyellow(nextPosition,'green');
         // Apply the CSS transition effect
         const g = document.getElementById('gpl');
         if (g) {
@@ -502,7 +645,9 @@ function Board({ frontGavulluCount }) {
         currentMarginBottom = newMarginbuBottom;
   
         setPositionbu(nextPosition);
-  
+        checkCollisiongreen(nextPosition,'blue');
+        checkCollisionred(nextPosition,'blue');
+        checkCollisionyellow(nextPosition,'blue');
         // Apply the CSS transition effect
         const g = document.getElementById('bpu');
         if (g) {
@@ -574,7 +719,9 @@ function Board({ frontGavulluCount }) {
         currentMarginLeft = newMarginbrLeft;
         currentMarginBottom = newMarginbrBottom;
         setPositionbr(nextPosition);
-  
+        checkCollisiongreen(nextPosition,'blue');
+        checkCollisionred(nextPosition,'blue');
+        checkCollisionyellow(nextPosition,'blue');
         // Apply the CSS transition effect
         const g = document.getElementById('bpr');
         if (g) {
@@ -638,7 +785,9 @@ function Board({ frontGavulluCount }) {
         currentMarginBottom = newMarginbdBottom;
   
         setPositionbd(nextPosition);
-  
+        checkCollisiongreen(nextPosition,'blue');
+        checkCollisionred(nextPosition,'blue');
+        checkCollisionyellow(nextPosition,'blue');
         // Apply the CSS transition effect
         const g = document.getElementById('bpd');
         if (g) {
@@ -710,7 +859,9 @@ function Board({ frontGavulluCount }) {
         currentMarginBottom = newMarginblBottom;
   
         setPositionbl(nextPosition);
-  
+        checkCollisiongreen(nextPosition,'blue');
+        checkCollisionred(nextPosition,'blue');
+        checkCollisionyellow(nextPosition,'blue');
         // Apply the CSS transition effect
         const g = document.getElementById('bpl');
         if (g) {
@@ -771,7 +922,9 @@ function Board({ frontGavulluCount }) {
         currentMarginBottom = newMarginruBottom;
   
         setPositionru(nextPosition);
-  
+        checkCollisiongreen(nextPosition,'red');
+        checkCollisionblue(nextPosition,'red');
+        checkCollisionyellow(nextPosition,'red');
         // Apply the CSS transition effect
         const g = document.getElementById('rpu');
         if (g) {
@@ -832,7 +985,9 @@ function Board({ frontGavulluCount }) {
         currentMarginBottom = newMarginrrBottom;
   
         setPositionrr(nextPosition);
-  
+        checkCollisiongreen(nextPosition,'red');
+        checkCollisionblue(nextPosition,'red');
+        checkCollisionyellow(nextPosition,'red');
         // Apply the CSS transition effect
         const g = document.getElementById('rpr');
         if (g) {
@@ -893,7 +1048,9 @@ function Board({ frontGavulluCount }) {
         currentMarginBottom = newMarginrdBottom;
   
         setPositionrd(nextPosition);
-  
+        checkCollisiongreen(nextPosition,'red');
+        checkCollisionblue(nextPosition,'red');
+        checkCollisionyellow(nextPosition,'red');
         // Apply the CSS transition effect
         const g = document.getElementById('rpd');
         if (g) {
@@ -954,7 +1111,9 @@ function Board({ frontGavulluCount }) {
         currentMarginBottom = newMarginrlBottom;
   
         setPositionrl(nextPosition);
-  
+        checkCollisiongreen(nextPosition,'red');
+        checkCollisionblue(nextPosition,'red');
+        checkCollisionyellow(nextPosition,'red');
         // Apply the CSS transition effect
         const g = document.getElementById('rpl');
         if (g) {
@@ -1015,7 +1174,9 @@ function Board({ frontGavulluCount }) {
         currentMarginBottom = newMarginyuBottom;
   
         setPositionyu(nextPosition);
-  
+        checkCollisiongreen(nextPosition,'yellow');
+        checkCollisionblue(nextPosition,'yellow');
+        checkCollisionred(nextPosition,'yellow');
         // Apply the CSS transition effect
         const g = document.getElementById('ypu');
         if (g) {
@@ -1076,7 +1237,9 @@ function Board({ frontGavulluCount }) {
         currentMarginBottom = newMarginyrBottom;
   
         setPositionyr(nextPosition);
-  
+        checkCollisiongreen(nextPosition,'yellow');
+        checkCollisionblue(nextPosition,'yellow');
+        checkCollisionred(nextPosition,'yellow');
         // Apply the CSS transition effect
         const g = document.getElementById('ypr');
         if (g) {
@@ -1137,7 +1300,9 @@ function Board({ frontGavulluCount }) {
         currentMarginBottom = newMarginydBottom;
   
         setPositionyd(nextPosition);
-  
+        checkCollisiongreen(nextPosition,'yellow');
+        checkCollisionblue(nextPosition,'yellow');
+        checkCollisionred(nextPosition,'yellow');
         // Apply the CSS transition effect
         const g = document.getElementById('ypd');
         if (g) {
@@ -1198,7 +1363,9 @@ function Board({ frontGavulluCount }) {
         currentMarginBottom = newMarginylBottom;
   
         setPositionyl(nextPosition);
-  
+        checkCollisiongreen(nextPosition,'yellow');
+        checkCollisionblue(nextPosition,'yellow');
+        checkCollisionred(nextPosition,'yellow');
         // Apply the CSS transition effect
         const g = document.getElementById('ypl');
         if (g) {
