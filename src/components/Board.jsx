@@ -38,11 +38,9 @@ function Board({ frontGavulluCount }) {
   const [marginblLeft, setMarginblLeft] = useState(0); 
   const [marginblBottom, setMarginblBottom] = useState(0);
 
-  const [marginrLeft, setMarginrLeft] = useState(0); 
-  const [marginrBottom, setMarginrBottom] = useState(0);
+  const [marginrdLeft, setMarginrdLeft] = useState(0); 
+  const [marginrdBottom, setMarginrdBottom] = useState(0);
 
-  const [marginyLeft, setMarginyLeft] = useState(0);  // State to manage marginLeft
-  const [marginyBottom, setMarginyBottom] = useState(0); 
 
   const [positiongu, setPositiongu] = useState({ h: 'c', v: '1' }); 
   const [positiongr, setPositiongr] = useState({ h: 'c', v: '1' }); 
@@ -54,8 +52,8 @@ function Board({ frontGavulluCount }) {
   const [positionbd, setPositionbd] = useState({ h: 'c', v: '5' });
   const [positionbl, setPositionbl] = useState({ h: 'c', v: '5' });
   
-  const [positionr, setrPosition] = useState({ h: 'a', v: '3' });
-  const [positiony, setyPosition] = useState({ h: 'e', v: '3' });
+  const [positionrd, setPositionrd] = useState({ h: 'a', v: '3' });
+  const [positionyd, setPositionyd] = useState({ h: 'e', v: '3' });
 
   const imageguRef = useRef(null);
   const imagegrRef = useRef(null);
@@ -67,8 +65,8 @@ function Board({ frontGavulluCount }) {
   const imagebdRef = useRef(null);
   const imageblRef = useRef(null);
 
-  const imagerRef = useRef(null);
-  const imageyRef = useRef(null);
+  const imagerdRef = useRef(null);
+  const imageydRef = useRef(null);
   const [selectedRedPawn, setSelectedRedPawn] = useState(null);
   const [greenPosition, setGreenPosition] = useState({ marginLeft: 0, marginBottom: 0 });
   const [bluePosition, setBluePosition] = useState({ marginLeft: 0, marginBottom: 0 });
@@ -129,6 +127,13 @@ function Board({ frontGavulluCount }) {
     if (frontGavulluCount > 0) {
       console.log(frontGavulluCount);
       moveImageblueleft(frontGavulluCount);
+    }
+  };
+  const handlePawnClickrd = () => {
+    if (frontGavulluCount > 0) {
+      console.log(frontGavulluCount);
+      console.log("yes red down called");
+      moveImagereddown(frontGavulluCount);
     }
   };
   // const Inputcheckgreen = () => {
@@ -510,8 +515,66 @@ function Board({ frontGavulluCount }) {
     }
   };
   
+  const moveImagereddown = (steps) => {
+    const stepDuration = 1000;
   
-
+    const path = [
+      { h: 'a', v: '3' }, // start
+      { h: 'a', v: '4' }, // (c,5) to (e,5)
+      { h: 'a', v: '5' }, // (d,5) to (e,5)
+      { h: 'b', v: '5' }, // (e,5) to (e,1)
+      { h: 'c', v: '5' }, // (e,4) to (e,1)
+      { h: 'e', v: '2' }, // (e,3) to (e,1)
+      { h: 'e', v: '1' }, // (e,2) to (e,1)
+      { h: 'd', v: '1' }, // (e,1) to (a,1)
+      { h: 'c', v: '1' }, // (d,1) to (a,1)
+      { h: 'b', v: '1' }, // (c,1) to (a,1)
+      { h: 'a', v: '1' }, // (b,1) to (a,1)
+      { h: 'a', v: '2' }, // (a,1) to (a,5)
+      { h: 'a', v: '3' }, // (a,2) to (a,5)
+      { h: 'a', v: '4' }, // (a,3) to (a,5)
+      { h: 'a', v: '5' }, // (a,4) to (a,5)
+      { h: 'b', v: '5' }, // (a,5) to (c,5)
+      { h: 'b', v: '4' }, // (b,5) to (b,4)
+      { h: 'b', v: '3' },
+      { h: 'b', v: '2' },
+      { h: 'c', v: '2' },
+      { h: 'd', v: '2' },
+      { h: 'd', v: '3' },
+      { h: 'd', v: '4' },
+      { h: 'c', v: '4' },
+      { h: 'c', v: '3' },
+    ];
+  
+    let currentIndex = path.findIndex(pos => pos.h === positionrd.h && pos.v === positionrd.v);
+    let currentMarginLeft = marginrdLeft;
+    let currentMarginBottom = marginrdBottom;
+  
+    for (let i = 0; i < steps; i++) {
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % path.length;
+        let nextPosition = path[currentIndex];
+  
+        let newMarginrdLeft = currentMarginLeft + (nextPosition.h.charCodeAt(0) - path[currentIndex - 1].h.charCodeAt(0)) * 100;
+        let newMarginrdBottom = currentMarginBottom - (nextPosition.v - path[currentIndex - 1].v) * 100;
+  console.log(nextPosition.h,nextPosition.v);
+  console.log(newMarginrdLeft,newMarginrdBottom);
+        setMarginrdLeft(newMarginrdLeft);
+        setMarginrdBottom(newMarginrdBottom);
+  
+        currentMarginLeft = newMarginrdLeft;
+        currentMarginBottom = newMarginrdBottom;
+  
+        setPositionrd(nextPosition);
+  
+        // Apply the CSS transition effect
+        const g = document.getElementById('rpd');
+        if (g) {
+          g.style.transition = 'margin 0.5s';
+        }
+      }, i * stepDuration);
+    }
+  };
   const moveImageblueleft = (steps) => {
     const stepDuration = 1000;
 
@@ -557,74 +620,7 @@ function Board({ frontGavulluCount }) {
       }, i * stepDuration);
     }
   };
-  const moveImagered = (steps) => {
-    if (!selectedRedPawn) return; // Exit if no pawn is selected
-  
-    const stepDuration = 1000;
-  
-    for (let i = 0; i < steps; i++) {
-      setTimeout(() => {
-        setrPosition((prevPosition) => {
-          let newrH = prevPosition.h;
-          let newrV = prevPosition.v;
-          let newMarginrLeft = marginrLeft;
-          let newMarginrBottom = marginrBottom - 100;
-  
-          newrV = String.fromCharCode(newrV.charCodeAt(0) + 1);
-  
-          setMarginrLeft(newMarginrLeft);
-          setMarginrBottom(newMarginrBottom);
-  
-          const newPosition = { h: newrH, v: newrV };
-          checkCollision(newPosition, 'red');
-  console.log(selectedRedPawn,marginrLeft,marginrBottom,newrH,newrV);
-          return newPosition;
-        });
-  
-        // Apply the CSS transition effect to the selected pawn
-        const r = document.getElementById(selectedRedPawn);
-        if (r) {
-          r.style.transition = 'margin 0.5s';
-        }
-      }, i * stepDuration);
-    }
-  };
-  
-  const moveImageyellow = (steps) => {
-    const stepDuration = 1000;
 
-    for (let i = 0; i < steps; i++) {
-      setTimeout(() => {
-        setyPosition((prevPosition) => {
-          let newyH = prevPosition.h;
-          let newyV = prevPosition.v;
-          let newMarginyLeft = marginyLeft;
-          let newMarginyBottom = marginyBottom+100;
-console.log(newMarginyBottom);
-          newyV = String.fromCharCode(newyV.charCodeAt(0) - 1);
-          if (newyV < '1') {
-            newyV = '5';
-            newyH = String.fromCharCode(newyH.charCodeAt(0) + 1);
-            newMarginyBottom = 0;
-            newMarginyLeft = marginyLeft - 100;
-          }
-
-          setMarginyLeft(newMarginyLeft);
-          setMarginyBottom(newMarginyBottom);
-
-          // Apply the CSS transition effect
-          const y = document.getElementById('ypu');
-          if (y) {
-            y.style.transition = 'margin 0.5s';
-          }
-
-          return { h: newyH, v: newyV }; // Update position
-        });
-
-        // console.log(`Position: ${position.h}${position.v}`);
-      }, i * stepDuration);
-    }
-  };
   return (
     <div>
       <div className='board'>
@@ -754,15 +750,16 @@ console.log(newMarginyBottom);
   id='rpl'
   style={{ marginLeft: `${selectedRedPawn === 'rpl' ? marginrLeft : 0}px`, marginBottom: `${selectedRedPawn === 'rpl' ? marginrBottom : 0}px` }}
   onClick={() => setSelectedRedPawn('rpl')}
-/>
+/>*/
 <img
+                  ref={imagerdRef}
   src={redPawn}
-  alt='Red Pawn'
+  alt='red Pawn'
   className='pd'
   id='rpd'
-  style={{ marginLeft: `${selectedRedPawn === 'rpd' ? marginrLeft : 0}px`, marginBottom: `${selectedRedPawn === 'rpd' ? marginrBottom : 0}px` }}
-  onClick={() => setSelectedRedPawn('rpd')}
-/> */}
+  style={{ marginrdLeft: `${marginrdLeft}px`, marginrdBottom: `${marginrdBottom}px` }}
+                    onClick={handlePawnClickrd}
+/> }
 
                 </div>
               )}
