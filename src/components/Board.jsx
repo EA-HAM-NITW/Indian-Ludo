@@ -150,345 +150,52 @@ function Board({ frontGavulluCount }) {
       moveImagegreenleft(frontGavulluCount);
     }
   };
-  const handlePawnClickbu = () => {
-    if (frontGavulluCount > 0) {
-      console.log(frontGavulluCount);
-      if(positionbu.h==='c' && positionbu.v==='3')
-        return;
-      if(positionbu.h==='c' && positionbu.v==='4' && frontGavulluCount!=1)
-        return;
-      if(positionbu.h==='d' && positionbu.v==='4' && frontGavulluCount>2)
-        return;
-      if(positionbu.h==='d' && positionbu.v==='3' && frontGavulluCount>3)
-        return;
-      moveImageblueup(frontGavulluCount);
-    }
-  };
-  const handlePawnClickbr = () => {
-    if (frontGavulluCount > 0) {
-      console.log(frontGavulluCount);
-      if(positionbr.h==='c' && positionbr.v==='3')
-        return;
-      if(positionbr.h==='c' && positionbr.v==='4' && frontGavulluCount!=1)
-        return;
-      if(positionbr.h==='d' && positionbr.v==='4' && frontGavulluCount>2)
-        return;
-      if(positionbr.h==='d' && positionbr.v==='3' && frontGavulluCount>3)
-        return;
-      moveImageblueright(frontGavulluCount);
-     
-    }
-  };
-  const handlePawnClickbd = () => {
-    if (frontGavulluCount > 0) {
-      console.log(frontGavulluCount);
-      if(positionbd.h==='c' && positionbd.v==='3')
-        return;
-      if(positionbd.h==='c' && positionbd.v==='4' && frontGavulluCount!=1)
-        return;
-      if(positionbd.h==='d' && positionbd.v==='4' && frontGavulluCount>2)
-        return;
-      if(positionbd.h==='d' && positionbd.v==='3' && frontGavulluCount>3)
-        return;
-      moveImagebluedown(frontGavulluCount);
-      console.log(positionbd);
-    }
-  };
-  const handlePawnClickbl = () => {
-    if (frontGavulluCount > 0) {
-      console.log(frontGavulluCount);
-      if(positionbl.h==='c' && positionbl.v==='3')
-        return;
-      if(positionbl.h==='c' && positionbl.v==='4' && frontGavulluCount!=1)
-        return;
-      if(positionbl.h==='d' && positionbl.v==='4' && frontGavulluCount>2)
-        return;
-      if(positionbl.h==='d' && positionbl.v==='3' && frontGavulluCount>3)
-        return;
-      moveImageblueleft(frontGavulluCount);
-    }
-  };
-  const handlePawnClickru = () => {
-    if (frontGavulluCount > 0) {
-      console.log(frontGavulluCount);
-      if(positionru.h==='c' && positionru.v==='3')
-        return;
-      if(positionru.h==='b' && positionru.v==='3' && frontGavulluCount!=1)
-        return;
-      if(positionru.h==='b' && positionru.v==='4' && frontGavulluCount>2)
-        return;
-      if(positionru.h==='c' && positionru.v==='4' && frontGavulluCount>3)
-        return;
-      moveImageredup(frontGavulluCount);
-    }
-  };
-  const handlePawnClickrr = () => {
-    if (frontGavulluCount > 0) {
-      console.log(frontGavulluCount);
-      if(positionrr.h==='c' && positionrr.v==='3')
-        return;
-      if(positionrr.h==='b' && positionrr.v==='3' && frontGavulluCount!=1)
-        return;
-      if(positionru.h==='b' && positionrr.v==='4' && frontGavulluCount>2)
-        return;
-      if(positionrr.h==='c' && positionrr.v==='4' && frontGavulluCount>3)
-        return;
-      moveImageredright(frontGavulluCount);
-    }
-  };
-  const handlePawnClickrd = () => {
-    if (frontGavulluCount > 0) {
-      console.log(frontGavulluCount);
-      if(positionrd.h==='c' && positionrd.v==='3')
-        return;
-      if(positionrd.h==='b' && positionrd.v==='3' && frontGavulluCount!=1)
-        return;
-      if(positionrd.h==='b' && positionrd.v==='4' && frontGavulluCount>2)
-        return;
-      if(positionrd.h==='c' && positionrd.v==='4' && frontGavulluCount>3)
-        return;
-      moveImagereddown(frontGavulluCount);
-    }
-  };
-  const handlePawnClickrl = () => {
-    if (frontGavulluCount > 0) {
-      console.log(frontGavulluCount);
-      if(positionrl.h==='c' && positionrl.v==='3')
-        return;
-      if(positionru.h==='b' && positionru.v==='3' && frontGavulluCount!=1)
-        return;
-      if(positionrl.h==='b' && positionrl.v==='4' && frontGavulluCount>2)
-        return;
-      if(positionrl.h==='c' && positionrl.v==='4' && frontGavulluCount>3)
-        return;
-      moveImageredleft(frontGavulluCount);
-    }
-  };
-  const handlePawnClickyu = () => {
-    if (frontGavulluCount > 0) {
-      console.log(frontGavulluCount);
-      if(positionyu.h==='c' && positionyu.v==='3')
-        return;
-      if(positionyu.h==='d' && positionyu.v==='3' && frontGavulluCount!=1)
-        return;
-      if(positionyu.h==='d' && positionyu.v==='2' && frontGavulluCount>2)
-        return;
-      if(positionyu.h==='c' && positionyu.v==='2' && frontGavulluCount>3)
-        return;
-      moveImageyellowup(frontGavulluCount);
-    }
-  };
-  const handlePawnClickyr = () => {
-    if (frontGavulluCount > 0) {
-      console.log(frontGavulluCount);
-      if(positionyr.h==='c' && positionyr.v==='3')
-        return;
-      if(positionyr.h==='d' && positionyr.v==='3' && frontGavulluCount!=1)
-        return;
-      if(positionyr.h==='d' && positionyr.v==='2' && frontGavulluCount>2)
-        return;
-      if(positionyr.h==='c' && positionyr.v==='2' && frontGavulluCount>3)
-        return;
-      moveImageyellowright(frontGavulluCount);
-    }
-  };
-  const handlePawnClickyd = () => {
-    if (frontGavulluCount > 0) {
-      console.log(frontGavulluCount);
-      if(positionyd.h==='c' && positionyd.v==='3')
-        return;
-      if(positionyd.h==='d' && positionyd.v==='3' && frontGavulluCount!=1)
-        return;
-      if(positionyd.h==='d' && positionyd.v==='2' && frontGavulluCount>2)
-        return;
-      if(positionyd.h==='c' && positionyd.v==='2' && frontGavulluCount>3)
-        return;
-      moveImageyellowdown(frontGavulluCount);
-    }
-  };
-  const handlePawnClickyl = () => {
-    if (frontGavulluCount > 0) {
-      console.log(frontGavulluCount);
-      if(positionyl.h==='c' && positionyl.v==='3')
-        return;
-      if(positionyl.h==='d' && positionyl.v==='3' && frontGavulluCount!=1)
-        return;
-      if(positionyl.h==='d' && positionyl.v==='2' && frontGavulluCount>2)
-        return;
-      if(positionyl.h==='c' && positionyl.v==='2' && frontGavulluCount>3)
-        return;
-      moveImageyellowleft(frontGavulluCount);
-    }
-  };
- 
-   const resetGreenPawnup = () => {
-    setPositiongu({ h: 'c', v: '1' });
-    setMarginguLeft(0);
-    setMarginguBottom(0);
-  };
-  const resetGreenPawnright = () => {
-    setPositiongr({ h: 'c', v: '1' });
-    setMargingrLeft(0);
-    setMargingrBottom(0);
-  };
-  const resetGreenPawndown = () => {
-    setPositiongd({ h: 'c', v: '1' });
-    setMargingdLeft(0);
-    setMargingdBottom(0);
-  };
-  const resetGreenPawnleft = () => {
-    setPositiongl({ h: 'c', v: '1' });
-    setMarginglLeft(0);
-    setMarginglBottom(0);
-  };
-  const resetBluePawnup = () => {
-    setPositionbu({ h: 'c', v: '5' });
-    setMarginbuLeft(0);
-    setMarginbuBottom(0);
-  };
-  const resetBluePawnright = () => {
-    setPositionbr({ h: 'c', v: '5' });
-    setMarginbrLeft(0);
-    setMarginbrBottom(0);
-  };
-  const resetBluePawndown = () => {
-    setPositionbd({ h: 'c', v: '5' });
-    setMarginbdLeft(0);
-    setMarginbdBottom(0);
-  };
-  const resetBluePawnleft = () => {
-    setPositionbl({ h: 'c', v: '5' });
-    setMarginblLeft(0);
-    setMarginblBottom(0);
-  };
-  const resetRedPawnup = () => {
-    setPositionru({ h: 'a', v: '3' });
-    setMarginruLeft(0);
-    setMarginruBottom(0);
-  };
-  const resetRedPawnright = () => {
-    setPositionrr({ h: 'a', v: '3' });
-    setMarginrrLeft(0);
-    setMarginrrBottom(0);
-  };
-  const resetRedPawndown = () => {
-    setPositionrd({ h: 'a', v: '3' });
-    setMarginrdLeft(0);
-    setMarginrdBottom(0);
-  };
-  const resetRedPawnleft = () => {
-    setPositionrl({ h: 'a', v: '3' });
-    setMarginrlLeft(0);
-    setMarginrlBottom(0);
-  };
-  const resetYellowPawnup = () => {
-    setPositionyu({ h: 'e', v: '3' });
-    setMarginyuLeft(0);
-    setMarginyuBottom(0);
-  };
-  const resetYellowPawnright = () => {
-    setPositionyr({ h: 'e', v: '3' });
-    setMarginyrLeft(0);
-    setMarginyrBottom(0);
-  };
-  const resetYellowPawndown = () => {
-    setPositionyd({ h: 'e', v: '3' });
-    setMarginydLeft(0);
-    setMarginydBottom(0);
-  };
-  const resetYellowPawnleft = () => {
-    setPositionyl({ h: 'e', v: '3' });
-    setMarginylLeft(0);
-    setMarginylBottom(0);
-  };
-  const checkCollisiongreen = (newPosition, currentPawn) => {
-    if (newPosition.h === positiongu.h && newPosition.v === positiongu.v && currentPawn !== 'green' ) 
-     {if(newPosition.h==='c' && newPosition.v==='3')
-      return;
-      resetGreenPawnup();
-    }
-   if (newPosition.h === positiongr.h && newPosition.v === positiongr.v && currentPawn !== 'green')
-      {if(newPosition.h==='c' && newPosition.v==='3')
-        return;
-        resetGreenPawnright();
-      }
-      if (newPosition.h === positiongd.h && newPosition.v === positiongd.v && currentPawn !== 'green')
-        {if(newPosition.h==='c' && newPosition.v==='3')
-          return;
-          resetGreenPawndown();
-        }
-        if (newPosition.h === positiongl.h && newPosition.v === positiongl.v && currentPawn !== 'green')
-          {if(newPosition.h==='c' && newPosition.v==='3')
-            return;
-            resetGreenPawnleft();
-          }
-  };
-  const checkCollisionblue = (newPosition, currentPawn) => {
-    if (newPosition.h === positionbu.h && newPosition.v === positionbu.v && currentPawn !== 'blue') 
-     {if(newPosition.h==='c' && newPosition.v==='3')
-      return;
-      resetBluePawnup();
-    }
-   if (newPosition.h === positionbr.h && newPosition.v === positionbr.v && currentPawn !== 'blue')
-      {if(newPosition.h==='c' && newPosition.v==='3')
-        return;
-        resetBluePawnright();
-      }
-      if (newPosition.h === positionbd.h && newPosition.v === positionbd.v && currentPawn !== 'blue')
-        {if(newPosition.h==='c' && newPosition.v==='3')
-          return;
-          resetBluePawndown();
-        }
-        if (newPosition.h === positionbl.h && newPosition.v === positionbl.v && currentPawn !== 'blue')
-          {if(newPosition.h==='c' && newPosition.v==='3')
-            return;
-            resetBluePawnleft();
-          }
-  };
-  const checkCollisionred = (newPosition, currentPawn) => {
-    if (newPosition.h === positionru.h && newPosition.v === positionru.v && currentPawn !== 'red') 
-     {if(newPosition.h==='c' && newPosition.v==='3')
-      return;
-      resetRedPawnup();
-    }
-   if (newPosition.h === positionrr.h && newPosition.v === positionrr.v && currentPawn !== 'red')
-      {if(newPosition.h==='c' && newPosition.v==='3')
-        return;
-        resetRedPawnright();
-      }
-      if (newPosition.h === positionrd.h && newPosition.v === positionrd.v && currentPawn !== 'red')
-        {if(newPosition.h==='c' && newPosition.v==='3')
-          return;
-          resetRedPawndown();
-        }
-        if (newPosition.h === positionrl.h && newPosition.v === positionrl.v && currentPawn !== 'red')
-          {if(newPosition.h==='c' && newPosition.v==='3')
-            return;
-            resetRedPawnleft();
-          }
-  };
-  const checkCollisionyellow = (newPosition, currentPawn) => {
-    if (newPosition.h === positionyu.h && newPosition.v === positionyu.v && currentPawn !== 'yellow') 
-     {if(newPosition.h==='c' && newPosition.v==='3')
-      return;
-      resetYellowPawnup();
-    }
-   if (newPosition.h === positionyr.h && newPosition.v === positionyr.v && currentPawn !== 'yellow')
-      {if(newPosition.h==='c' && newPosition.v==='3')
-        return;
-        resetYellowPawnright();
-      }
-      if (newPosition.h === positionyd.h && newPosition.v === positionyd.v && currentPawn !== 'yellow')
-        {if(newPosition.h==='c' && newPosition.v==='3')
-          return;
-          resetYellowPawndown();
-        }
-        if (newPosition.h === positionyl.h && newPosition.v === positionyl.v && currentPawn !== 'yellow')
-          {if(newPosition.h==='c' && newPosition.v==='3')
-            return;
-            resetYellowPawnleft();
-          }
-  };
+  
+  // const Inputcheckgreen = () => {
+  //   const inputValue = parseInt(inputRef.current.value, 10);
+  //   if (!isNaN(inputValue)) {
+  //     setValue(inputValue);
+  //     moveImagegreen(inputValue);
+  //   }
+  // };
+  // const Inputcheckblue = () => {
+  //   const inputValue = parseInt(inputRef.current.value, 10);
+  //   if (!isNaN(inputValue)) {
+  //     setValue(inputValue);
+  //     moveImageblue(inputValue);
+  //   }
+  // };
+  // const Inputcheckred = () => {
+  //   const inputValue = parseInt(inputRef.current.value, 10);
+  //   if (!isNaN(inputValue)) {
+  //     setValue(inputValue);
+  //     moveImagered(inputValue);
+  //   }
+  // };
+  // const Inputcheckyellow = () => {
+  //   const inputValue = parseInt(inputRef.current.value, 10);
+  //   if (!isNaN(inputValue)) {
+  //     setValue(inputValue);
+  //     moveImageyellow(inputValue);
+  //   }
+  // };
+  //  const resetGreenPawn = () => {
+  //   setPosition({ h: 'c', v: '1' });
+  //   setMarginguLeft(0);
+  //   setMarginguBottom(0);
+  // };
+
+  // const checkCollision = (newPosition, currentPawn) => {
+  //   // console.log(newPosition.h);
+  //   // console.log(newPosition.v);
+  //   // console.log(position.h);
+  //   // console.log(position.v);
+  //   // console.log(currentPawn);
+  //   if (newPosition.h === position.h && newPosition.v === position.v && currentPawn !== 'green') 
+  //    {console.log('Yes');
+  //     resetGreenPawn();
+  //   }
+  // };
   const moveImagegreenup = (steps) => {
     const stepDuration = 1000;
   
@@ -588,27 +295,38 @@ function Board({ frontGavulluCount }) {
   
     for (let i = 0; i < steps; i++) {
       setTimeout(() => {
-        currentIndex = (currentIndex + 1) % path.length;
-        let nextPosition = path[currentIndex];
-  
-        let newMargingrLeft = currentMarginLeft + (nextPosition.h.charCodeAt(0) - path[currentIndex - 1].h.charCodeAt(0)) * 100;
-        let newMargingrBottom = currentMarginBottom - (nextPosition.v - path[currentIndex - 1].v) * 100;
-        console.log(nextPosition.h,nextPosition.v);
-        console.log(newMargingrLeft,newMargingrBottom);
-        setMargingrLeft(newMargingrLeft);
-        setMargingrBottom(newMargingrBottom);
-  
-        currentMarginLeft = newMargingrLeft;
-        currentMarginBottom = newMargingrBottom;
-        setPositiongr(nextPosition);
-        checkCollisionblue(nextPosition,'green');
-        checkCollisionred(nextPosition,'green');
-        checkCollisionyellow(nextPosition,'green');
-        // Apply the CSS transition effect
-        const g = document.getElementById('gpr');
-        if (g) {
-          g.style.transition = 'margin 0.5s';
-        }
+        setPositiongr((prevPosition) => {
+          let newgrH = prevPosition.h;
+          let newgrV = prevPosition.v;
+          let newMargingrLeft = margingrLeft - (i + 1) * 100;
+          let newMargingrBottom = margingrBottom;
+
+          newgrH = String.fromCharCode(newgrH.charCodeAt(0) - 1);
+          console.log(newgrH,newgrV,newMargingrLeft,newMargingrBottom);
+          if (newgrH < 'a') {
+            newgrH = 'a';
+            newgrV = String.fromCharCode(newgrV.charCodeAt(0) + 1);
+            newMargingrBottom = margingrBottom - (i + 1) * 100;
+            newMargingrLeft = -200; // Assuming it should stop at the edge
+            console.log(newgrH,newgrV,newMargingrLeft,newMargingrBottom);
+          }
+          if (newgrV > '5') {
+            newgrV = '5';
+            newgrH = String.fromCharCode(newgrH.charCodeAt(0) + 1);
+            newMargingrLeft = margingrLeft + 100;
+            newMargingrBottom = -400;
+          }
+
+          setMargingrLeft(newMargingrLeft);
+          setMargingrBottom(newMargingrBottom);
+
+          const g = document.getElementById('pr');
+          if (g) {
+            g.style.transition = 'margin 0.5s';
+          }
+
+          return { h: newgrH, v: newgrV };
+        });
       }, i * stepDuration);
     }
   };
@@ -1017,227 +735,52 @@ function Board({ frontGavulluCount }) {
   
   const moveImageredup = (steps) => {
     const stepDuration = 1000;
-  
-    const path = [
-      { h: 'a', v: '3' }, // start
-      { h: 'a', v: '4' }, // (c,5) to (e,5)
-      { h: 'a', v: '5' }, // (d,5) to (e,5)
-      { h: 'b', v: '5' }, // (e,5) to (e,1)
-      { h: 'c', v: '5' }, // (e,4) to (e,1)
-      { h: 'd', v: '5' }, // (e,3) to (e,1)
-      { h: 'e', v: '5' }, // (e,2) to (e,1)
-      { h: 'e', v: '4' }, // (e,1) to (a,1)
-      { h: 'e', v: '3' }, // (d,1) to (a,1)
-      { h: 'e', v: '2' }, // (c,1) to (a,1)
-      { h: 'e', v: '1' }, // (b,1) to (a,1)
-      { h: 'd', v: '1' }, // (a,1) to (a,5)
-      { h: 'c', v: '1' }, // (a,2) to (a,5)
-      { h: 'b', v: '1' }, // (a,3) to (a,5)
-      { h: 'a', v: '1' }, // (a,4) to (a,5)
-      { h: 'a', v: '2' }, // (a,5) to (c,5)
-      { h: 'b', v: '2' }, // (b,5) to (b,4)
-      { h: 'c', v: '2' },
-      { h: 'd', v: '2' },
-      { h: 'd', v: '3' },
-      { h: 'd', v: '4' },
-      { h: 'c', v: '4' },
-      { h: 'b', v: '4' },
-      { h: 'b', v: '3' },
-      { h: 'c', v: '3' },
-    ];
-  
-    let currentIndex = path.findIndex(pos => pos.h === positionru.h && pos.v === positionru.v);
-    let currentMarginLeft = marginruLeft;
-    let currentMarginBottom = marginruBottom;
-  
-    for (let i = 0; i < steps; i++) {
-      setTimeout(() => {
-        currentIndex = (currentIndex + 1) % path.length;
-        let nextPosition = path[currentIndex];
-  
-        let newMarginruLeft = currentMarginLeft + (nextPosition.h.charCodeAt(0) - path[currentIndex - 1].h.charCodeAt(0)) * 100;
-        let newMarginruBottom = currentMarginBottom - (nextPosition.v - path[currentIndex - 1].v) * 100;
-  console.log(nextPosition.h,nextPosition.v);
-  console.log(newMarginruLeft,newMarginruBottom);
-        setMarginruLeft(newMarginruLeft);
-        setMarginruBottom(newMarginruBottom);
-  
-        currentMarginLeft = newMarginruLeft;
-        currentMarginBottom = newMarginruBottom;
-  
-        setPositionru(nextPosition);
-        checkCollisiongreen(nextPosition,'red');
-        checkCollisionblue(nextPosition,'red');
-        checkCollisionyellow(nextPosition,'red');
-        // Apply the CSS transition effect
-        const g = document.getElementById('rpu');
-        if (g) {
-          g.style.transition = 'margin 0.5s';
-        }
-      }, i * stepDuration);
-    }
-  };
 
-  const moveImageredright = (steps) => {
-    const stepDuration = 1000;
-  
-    const path = [
-      { h: 'a', v: '3' }, // start
-      { h: 'a', v: '4' }, // (c,5) to (e,5)
-      { h: 'a', v: '5' }, // (d,5) to (e,5)
-      { h: 'b', v: '5' }, // (e,5) to (e,1)
-      { h: 'c', v: '5' }, // (e,4) to (e,1)
-      { h: 'd', v: '5' }, // (e,3) to (e,1)
-      { h: 'e', v: '5' }, // (e,2) to (e,1)
-      { h: 'e', v: '4' }, // (e,1) to (a,1)
-      { h: 'e', v: '3' }, // (d,1) to (a,1)
-      { h: 'e', v: '2' }, // (c,1) to (a,1)
-      { h: 'e', v: '1' }, // (b,1) to (a,1)
-      { h: 'd', v: '1' }, // (a,1) to (a,5)
-      { h: 'c', v: '1' }, // (a,2) to (a,5)
-      { h: 'b', v: '1' }, // (a,3) to (a,5)
-      { h: 'a', v: '1' }, // (a,4) to (a,5)
-      { h: 'a', v: '2' }, // (a,5) to (c,5)
-      { h: 'b', v: '2' }, // (b,5) to (b,4)
-      { h: 'c', v: '2' },
-      { h: 'd', v: '2' },
-      { h: 'd', v: '3' },
-      { h: 'd', v: '4' },
-      { h: 'c', v: '4' },
-      { h: 'b', v: '4' },
-      { h: 'b', v: '3' },
-      { h: 'c', v: '3' },
-    ];
-  
-    let currentIndex = path.findIndex(pos => pos.h === positionrr.h && pos.v === positionrr.v);
-    let currentMarginLeft = marginrrLeft;
-    let currentMarginBottom = marginrrBottom;
-  
     for (let i = 0; i < steps; i++) {
       setTimeout(() => {
-        currentIndex = (currentIndex + 1) % path.length;
-        let nextPosition = path[currentIndex];
-  
-        let newMarginrrLeft = currentMarginLeft + (nextPosition.h.charCodeAt(0) - path[currentIndex - 1].h.charCodeAt(0)) * 100;
-        let newMarginrrBottom = currentMarginBottom - (nextPosition.v - path[currentIndex - 1].v) * 100;
-  console.log(nextPosition.h,nextPosition.v);
-  console.log(newMarginrrLeft,newMarginrrBottom);
-        setMarginrrLeft(newMarginrrLeft);
-        setMarginrrBottom(newMarginrrBottom);
-  
-        currentMarginLeft = newMarginrrLeft;
-        currentMarginBottom = newMarginrrBottom;
-  
-        setPositionrr(nextPosition);
-        checkCollisiongreen(nextPosition,'red');
-        checkCollisionblue(nextPosition,'red');
-        checkCollisionyellow(nextPosition,'red');
-        // Apply the CSS transition effect
-        const g = document.getElementById('rpr');
-        if (g) {
-          g.style.transition = 'margin 0.5s';
-        }
-      }, i * stepDuration);
-    }
-  };
+        setbPosition((prevPosition) => {
+          let newbH = prevPosition.h;
+          let newbV = prevPosition.v;
+          let newMarginbLeft = marginbLeft + (i + 1) * 100;
+          let newMarginbBottom = marginbBottom; // Initialize outside conditional
 
-  const moveImagereddown = (steps) => {
-    const stepDuration = 1000;
-  
-    const path = [
-      { h: 'a', v: '3' }, // start
-      { h: 'a', v: '4' }, // (c,5) to (e,5)
-      { h: 'a', v: '5' }, // (d,5) to (e,5)
-      { h: 'b', v: '5' }, // (e,5) to (e,1)
-      { h: 'c', v: '5' }, // (e,4) to (e,1)
-      { h: 'd', v: '5' }, // (e,3) to (e,1)
-      { h: 'e', v: '5' }, // (e,2) to (e,1)
-      { h: 'e', v: '4' }, // (e,1) to (a,1)
-      { h: 'e', v: '3' }, // (d,1) to (a,1)
-      { h: 'e', v: '2' }, // (c,1) to (a,1)
-      { h: 'e', v: '1' }, // (b,1) to (a,1)
-      { h: 'd', v: '1' }, // (a,1) to (a,5)
-      { h: 'c', v: '1' }, // (a,2) to (a,5)
-      { h: 'b', v: '1' }, // (a,3) to (a,5)
-      { h: 'a', v: '1' }, // (a,4) to (a,5)
-      { h: 'a', v: '2' }, // (a,5) to (c,5)
-      { h: 'b', v: '2' }, // (b,5) to (b,4)
-      { h: 'c', v: '2' },
-      { h: 'd', v: '2' },
-      { h: 'd', v: '3' },
-      { h: 'd', v: '4' },
-      { h: 'c', v: '4' },
-      { h: 'b', v: '4' },
-      { h: 'b', v: '3' },
-      { h: 'c', v: '3' },
-    ];
-  
-    let currentIndex = path.findIndex(pos => pos.h === positionrd.h && pos.v === positionrd.v);
-    let currentMarginLeft = marginrdLeft;
-    let currentMarginBottom = marginrdBottom;
-  
-    for (let i = 0; i < steps; i++) {
-      setTimeout(() => {
-        currentIndex = (currentIndex + 1) % path.length;
-        let nextPosition = path[currentIndex];
-  
-        let newMarginrdLeft = currentMarginLeft + (nextPosition.h.charCodeAt(0) - path[currentIndex - 1].h.charCodeAt(0)) * 100;
-        let newMarginrdBottom = currentMarginBottom - (nextPosition.v - path[currentIndex - 1].v) * 100;
-  console.log(nextPosition.h,nextPosition.v);
-  console.log(newMarginrdLeft,newMarginrdBottom);
-        setMarginrdLeft(newMarginrdLeft);
-        setMarginrdBottom(newMarginrdBottom);
-  
-        currentMarginLeft = newMarginrdLeft;
-        currentMarginBottom = newMarginrdBottom;
-  
-        setPositionrd(nextPosition);
-        checkCollisiongreen(nextPosition,'red');
-        checkCollisionblue(nextPosition,'red');
-        checkCollisionyellow(nextPosition,'red');
-        // Apply the CSS transition effect
-        const g = document.getElementById('rpd');
-        if (g) {
-          g.style.transition = 'margin 0.5s';
-        }
+          newbH = String.fromCharCode(newbH.charCodeAt(0) + 1);
+          console.log(newbH,newbV);
+          console.log(marginbLeft)
+          if (newbH >= 'e') {
+            newbH = 'e';
+            newbV = String.fromCharCode(newbV.charCodeAt(0) - 1);
+            newMarginbBottom =marginbBottom+ (1) * 100; // Update marginBottom
+            newMarginbLeft = 200; // Assuming it should stop at the edge
+            console.log(newbH,newbV);
+            console.log(newMarginbBottom);
+          }
+// if(newV>'5' ){
+//   newV='5';
+//   newH=String.fromCharCode(newH.charCodeAt(0) + 1);
+//   newMarginLeft = marginLeft + (1) * 100;
+//   newMarginBottom=-400;
+//   console.log(newH,newV);
+// }
+          setMarginbLeft(newMarginbLeft);
+          setMarginbBottom(newMarginbBottom);
+
+          // Apply the CSS transition effect
+          const g = document.getElementById('bpu');
+          if (g) {
+            g.style.transition = 'margin 0.5s';
+          }
+
+          return { h: newbH, v: newbV }; // Update position
+        });
+
+        // console.log(`Position: ${position.h}${position.v}`);
       }, i * stepDuration);
     }
   };
   
   const moveImageredleft = (steps) => {
     const stepDuration = 1000;
-  
-    const path = [
-      { h: 'a', v: '3' }, // start
-      { h: 'a', v: '4' }, // (c,5) to (e,5)
-      { h: 'a', v: '5' }, // (d,5) to (e,5)
-      { h: 'b', v: '5' }, // (e,5) to (e,1)
-      { h: 'c', v: '5' }, // (e,4) to (e,1)
-      { h: 'd', v: '5' }, // (e,3) to (e,1)
-      { h: 'e', v: '5' }, // (e,2) to (e,1)
-      { h: 'e', v: '4' }, // (e,1) to (a,1)
-      { h: 'e', v: '3' }, // (d,1) to (a,1)
-      { h: 'e', v: '2' }, // (c,1) to (a,1)
-      { h: 'e', v: '1' }, // (b,1) to (a,1)
-      { h: 'd', v: '1' }, // (a,1) to (a,5)
-      { h: 'c', v: '1' }, // (a,2) to (a,5)
-      { h: 'b', v: '1' }, // (a,3) to (a,5)
-      { h: 'a', v: '1' }, // (a,4) to (a,5)
-      { h: 'a', v: '2' }, // (a,5) to (c,5)
-      { h: 'b', v: '2' }, // (b,5) to (b,4)
-      { h: 'c', v: '2' },
-      { h: 'd', v: '2' },
-      { h: 'd', v: '3' },
-      { h: 'd', v: '4' },
-      { h: 'c', v: '4' },
-      { h: 'b', v: '4' },
-      { h: 'b', v: '3' },
-      { h: 'c', v: '3' },
-    ];
-  
-    let currentIndex = path.findIndex(pos => pos.h === positionrl.h && pos.v === positionrl.v);
-    let currentMarginLeft = marginrlLeft;
-    let currentMarginBottom = marginrlBottom;
   
     for (let i = 0; i < steps; i++) {
       setTimeout(() => {
