@@ -176,28 +176,28 @@
 }
 
 .pu {
-  left: 35%;
-  top: 0%;
-  z-index:2;
+  left: 40px;
+  bottom: 70%;
+  z-index:3;
 }
 
 .pr {
-  right: 0px;
-  top: 30px;
-  z-index:2;
+  left: 75px;
+  bottom: 35px;
+  z-index:3;
 }
 
 .pd {
   left: 40px;
   bottom: 0;
-  z-index:2;
+  z-index:3;
 }
 
 .pl {
   left: 0;
-  top: 50%;
-  z-index:2;
-  transform: translateY(-50%);
+  bottom: 35px;
+  z-index:3;
+  
 }
 
 .inputs {
@@ -222,4 +222,10 @@
 }
 .count {
   color : aqua;
+}
+.Audio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
 }

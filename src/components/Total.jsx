@@ -35,7 +35,7 @@ function Images_front({onCounts}) {
     return (
         <div className="image-container">
             <h2 className="count">The Number of front = {countf}</h2>
-            <h2 className="count">The Number of backa = {countb}</h2>
+            <h2 className="count">The Number of back = {countb}</h2>
             <div className="images-container">{images}</div>
         </div>
     );
