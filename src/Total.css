@@ -9,6 +9,7 @@
     width: 500px;
     height:450px;
     border-radius: 3px;
+    background-color: antiquewhite;
   }
   
   .images-container {
@@ -25,10 +26,11 @@
     border-color: black;
     border-radius: 5px;
     margin-left:50px;
+    background-color: navajowhite;
   }
   
   .count {
-    font-size: 18px;
+    font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
     font-style: normal;
     color: black;
@@ -36,6 +38,6 @@
 
   .player_name {
     text-align: center;
-    color: aqua;
+    color:black;
   }
   

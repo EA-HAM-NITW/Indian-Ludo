@@ -1,7 +1,7 @@
 import React from 'react';
 import gavullu from '../assets/gavullu.jpg';
 import gavullu2 from '../assets/gavullu2.jpg';
-import '../css/Total.css';
+import '../Total.css';
 
 function Images_front({}) {
     let images = [];
