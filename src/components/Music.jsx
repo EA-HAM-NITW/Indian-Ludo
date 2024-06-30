@@ -35,7 +35,7 @@ function Music() {
         src={isMuted ? muteIcon : unmuteIcon}
         alt={isMuted ? "Unmute" : "Mute"}
         onClick={toggleAudio}
-        style={{ cursor: 'pointer', width: '50px', height: '50px' }}
+        // style={{ cursor: 'pointer', width: '50px', height: '50px' }}
       />
     </div>
   );
