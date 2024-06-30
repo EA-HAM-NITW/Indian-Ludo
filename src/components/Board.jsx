@@ -13,7 +13,7 @@ import Yellowcircles from './Yellowcircles';
 function Board({ frontGavulluCount }) {
   const vertical = [ '1', '2', '3', '4', '5' ];
   const horizontal = ['a', 'b', 'c', 'd', 'e'];
-
+  const indexing=[1,2,3,4];
   const [marginguLeft, setMarginguLeft] = useState(0);  // State to manage marginLeft
   const [marginguBottom, setMarginguBottom] = useState(0);
   const [margingrLeft, setMargingrLeft] = useState(0);  // State to manage marginLeft
@@ -92,11 +92,12 @@ function Board({ frontGavulluCount }) {
 
   const inputRef = useRef(null);
   const [value, setValue] = useState(0);
+  const [currIndex, setCurrIndex] = useState(0); 
 
   const handlePawnClickgu = () => {
-    if (frontGavulluCount > 0) {
-      console.log(frontGavulluCount);
-      console.log(positiongu);
+    if (frontGavulluCount > 0&&indexing[currIndex]===1) {
+       console.log("the index is=");
+       console.log(currIndex);
      if(positiongu.h==='c' && positiongu.v==='3')
       return;
     if(positiongu.h==='c' && positiongu.v==='2' && frontGavulluCount!=1)
@@ -105,11 +106,12 @@ function Board({ frontGavulluCount }) {
       return;
     if(positiongu.h==='b' && positiongu.v==='3' && frontGavulluCount>3)
       return;
+     setCurrIndex((currIndex+ 1)%4);
       moveImagegreenup(frontGavulluCount);
     }
   };
   const handlePawnClickgr = () => {
-    if (frontGavulluCount > 0) {
+    if (frontGavulluCount > 0&&indexing[currIndex]===1) {
       console.log(frontGavulluCount);
       if(positiongr.h==='c' && positiongr.v==='3')
         return;
@@ -119,11 +121,12 @@ function Board({ frontGavulluCount }) {
         return;
       if(positiongr.h==='b' && positiongr.v==='3' && frontGavulluCount>3)
         return;
+      setCurrIndex((currIndex+ 1)%4);
       moveImagegreenright(frontGavulluCount);
     }
   };
   const handlePawnClickgd = () => {
-    if (frontGavulluCount > 0) {
+    if (frontGavulluCount > 0&&indexing[currIndex]===1) {
       console.log(frontGavulluCount);
       if(positiongd.h==='c' && positiongd.v==='3')
         return;
@@ -133,11 +136,12 @@ function Board({ frontGavulluCount }) {
         return;
       if(positiongd.h==='b' && positiongd.v==='3' && frontGavulluCount>3)
         return;
+      setCurrIndex((currIndex+ 1)%4);
       moveImagegreendown(frontGavulluCount);
     }
   };
   const handlePawnClickgl = () => {
-    if (frontGavulluCount > 0) {
+    if (frontGavulluCount > 0&&indexing[currIndex]===1) {
       console.log(frontGavulluCount);
       if(positiongl.h==='c' && positiongl.v==='3')
         return;
@@ -147,11 +151,12 @@ function Board({ frontGavulluCount }) {
         return;
       if(positiongl.h==='b' && positiongl.v==='3' && frontGavulluCount>3)
         return;
+      setCurrIndex((currIndex+ 1)%4);
       moveImagegreenleft(frontGavulluCount);
     }
   };
   const handlePawnClickbu = () => {
-    if (frontGavulluCount > 0) {
+    if (frontGavulluCount > 0&&indexing[currIndex]===3) {
       console.log(frontGavulluCount);
       if(positionbu.h==='c' && positionbu.v==='3')
         return;
@@ -161,11 +166,12 @@ function Board({ frontGavulluCount }) {
         return;
       if(positionbu.h==='d' && positionbu.v==='3' && frontGavulluCount>3)
         return;
+      setCurrIndex((currIndex+ 1)%4);
       moveImageblueup(frontGavulluCount);
     }
   };
   const handlePawnClickbr = () => {
-    if (frontGavulluCount > 0) {
+    if (frontGavulluCount > 0&&indexing[currIndex]===3) {
       console.log(frontGavulluCount);
       if(positionbr.h==='c' && positionbr.v==='3')
         return;
@@ -175,12 +181,13 @@ function Board({ frontGavulluCount }) {
         return;
       if(positionbr.h==='d' && positionbr.v==='3' && frontGavulluCount>3)
         return;
+      setCurrIndex((currIndex+ 1)%4);
       moveImageblueright(frontGavulluCount);
      
     }
   };
   const handlePawnClickbd = () => {
-    if (frontGavulluCount > 0) {
+    if (frontGavulluCount > 0&&indexing[currIndex]===3) {
       console.log(frontGavulluCount);
       if(positionbd.h==='c' && positionbd.v==='3')
         return;
@@ -190,12 +197,13 @@ function Board({ frontGavulluCount }) {
         return;
       if(positionbd.h==='d' && positionbd.v==='3' && frontGavulluCount>3)
         return;
+      setCurrIndex((currIndex+ 1)%4);
       moveImagebluedown(frontGavulluCount);
       console.log(positionbd);
     }
   };
   const handlePawnClickbl = () => {
-    if (frontGavulluCount > 0) {
+    if (frontGavulluCount > 0&&indexing[currIndex]===3) {
       console.log(frontGavulluCount);
       if(positionbl.h==='c' && positionbl.v==='3')
         return;
@@ -205,11 +213,12 @@ function Board({ frontGavulluCount }) {
         return;
       if(positionbl.h==='d' && positionbl.v==='3' && frontGavulluCount>3)
         return;
+      setCurrIndex((currIndex+ 1)%4);
       moveImageblueleft(frontGavulluCount);
     }
   };
   const handlePawnClickru = () => {
-    if (frontGavulluCount > 0) {
+    if (frontGavulluCount > 0&&indexing[currIndex]===2) {
       console.log(frontGavulluCount);
       if(positionru.h==='c' && positionru.v==='3')
         return;
@@ -219,11 +228,12 @@ function Board({ frontGavulluCount }) {
         return;
       if(positionru.h==='c' && positionru.v==='4' && frontGavulluCount>3)
         return;
+      setCurrIndex((currIndex+ 1)%4);
       moveImageredup(frontGavulluCount);
     }
   };
   const handlePawnClickrr = () => {
-    if (frontGavulluCount > 0) {
+    if (frontGavulluCount > 0&&indexing[currIndex]===2) {
       console.log(frontGavulluCount);
       if(positionrr.h==='c' && positionrr.v==='3')
         return;
@@ -233,11 +243,12 @@ function Board({ frontGavulluCount }) {
         return;
       if(positionrr.h==='c' && positionrr.v==='4' && frontGavulluCount>3)
         return;
+      setCurrIndex((currIndex+ 1)%4);
       moveImageredright(frontGavulluCount);
     }
   };
   const handlePawnClickrd = () => {
-    if (frontGavulluCount > 0) {
+    if (frontGavulluCount > 0&&indexing[currIndex]===2) {
       console.log(frontGavulluCount);
       if(positionrd.h==='c' && positionrd.v==='3')
         return;
@@ -247,11 +258,12 @@ function Board({ frontGavulluCount }) {
         return;
       if(positionrd.h==='c' && positionrd.v==='4' && frontGavulluCount>3)
         return;
+      setCurrIndex((currIndex+ 1)%4);
       moveImagereddown(frontGavulluCount);
     }
   };
   const handlePawnClickrl = () => {
-    if (frontGavulluCount > 0) {
+    if (frontGavulluCount > 0&&indexing[currIndex]===2) {
       console.log(frontGavulluCount);
       if(positionrl.h==='c' && positionrl.v==='3')
         return;
@@ -261,11 +273,12 @@ function Board({ frontGavulluCount }) {
         return;
       if(positionrl.h==='c' && positionrl.v==='4' && frontGavulluCount>3)
         return;
+      setCurrIndex((currIndex+ 1)%4);
       moveImageredleft(frontGavulluCount);
     }
   };
   const handlePawnClickyu = () => {
-    if (frontGavulluCount > 0) {
+    if (frontGavulluCount > 0&&indexing[currIndex]===4) {
       console.log(frontGavulluCount);
       if(positionyu.h==='c' && positionyu.v==='3')
         return;
@@ -275,11 +288,12 @@ function Board({ frontGavulluCount }) {
         return;
       if(positionyu.h==='c' && positionyu.v==='2' && frontGavulluCount>3)
         return;
+      setCurrIndex((currIndex+ 1)%4);
       moveImageyellowup(frontGavulluCount);
     }
   };
   const handlePawnClickyr = () => {
-    if (frontGavulluCount > 0) {
+    if (frontGavulluCount > 0&&indexing[currIndex]===4) {
       console.log(frontGavulluCount);
       if(positionyr.h==='c' && positionyr.v==='3')
         return;
@@ -289,11 +303,12 @@ function Board({ frontGavulluCount }) {
         return;
       if(positionyr.h==='c' && positionyr.v==='2' && frontGavulluCount>3)
         return;
+      setCurrIndex((currIndex+ 1)%4);
       moveImageyellowright(frontGavulluCount);
     }
   };
   const handlePawnClickyd = () => {
-    if (frontGavulluCount > 0) {
+    if (frontGavulluCount > 0&&indexing[currIndex]===4) {
       console.log(frontGavulluCount);
       if(positionyd.h==='c' && positionyd.v==='3')
         return;
@@ -303,11 +318,12 @@ function Board({ frontGavulluCount }) {
         return;
       if(positionyd.h==='c' && positionyd.v==='2' && frontGavulluCount>3)
         return;
+      setCurrIndex((currIndex+ 1)%4);
       moveImageyellowdown(frontGavulluCount);
     }
   };
   const handlePawnClickyl = () => {
-    if (frontGavulluCount > 0) {
+    if (frontGavulluCount > 0&&indexing[currIndex]===4) {
       console.log(frontGavulluCount);
       if(positionyl.h==='c' && positionyl.v==='3')
         return;
@@ -317,6 +333,7 @@ function Board({ frontGavulluCount }) {
         return;
       if(positionyl.h==='c' && positionyl.v==='2' && frontGavulluCount>3)
         return;
+      setCurrIndex((currIndex+ 1)%4);
       moveImageyellowleft(frontGavulluCount);
     }
   };
