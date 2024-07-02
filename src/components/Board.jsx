@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import  { useState, useRef } from 'react';
 import greenPawn from '../assets/green pawn.png';
 import bluePawn from '../assets/blue pawn.png';
 import yellowPawn from '../assets/yellow pawn.png';
@@ -22,7 +22,7 @@ function Board({ frontGavulluCount }) {
   const [margingdBottom, setMargingdBottom] = useState(0);
   const [marginglLeft, setMarginglLeft] = useState(0);  // State to manage marginLeft
   const [marginglBottom, setMarginglBottom] = useState(0);
-
+  //const [helper,setHelper]=useState
   const [marginbuLeft, setMarginbuLeft] = useState(0); 
   const [marginbuBottom, setMarginbuBottom] = useState(0);
   const [marginbrLeft, setMarginbrLeft] = useState(0); 
@@ -90,8 +90,8 @@ function Board({ frontGavulluCount }) {
   const imageydRef = useRef(null);
   const imageylRef = useRef(null);
 
-  const inputRef = useRef(null);
-  const [value, setValue] = useState(0);
+  //const inputRef = useRef(null);
+  //const [value, setValue] = useState(0);
   const [currIndex, setCurrIndex] = useState(0); 
 
   const handlePawnClickgu = () => {
